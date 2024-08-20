@@ -1,4 +1,9 @@
 //
+//  WelcomeScreen.swift
+//  TheMovieTracker
+//
+//  Created by Renato Vieira on 19/08/24.
+//
 
 import UIKit
 
