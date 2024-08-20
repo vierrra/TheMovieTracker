@@ -26,6 +26,7 @@
 		6C5C93EC2C73CA7100DA7960 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93EB2C73CA7100DA7960 /* HomeViewController.swift */; };
 		6C5C93EF2C73CAB600DA7960 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93EE2C73CAB600DA7960 /* SearchViewController.swift */; };
 		6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */; };
+		CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		6C5C93EB2C73CA7100DA7960 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6C5C93EE2C73CAB600DA7960 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		6C5C93D92C73BB8100DA7960 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				6C5C939D2C73741500DA7960 /* WelcomeViewController.swift in Sources */,
 				6C5C93992C73741500DA7960 /* AppDelegate.swift in Sources */,
 				6C5C93CC2C73779B00DA7960 /* WelcomeScreen.swift in Sources */,
+				CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */,
 				6C5C939B2C73741500DA7960 /* SceneDelegate.swift in Sources */,
 				6C5C93EF2C73CAB600DA7960 /* SearchViewController.swift in Sources */,
 				6C5C93D82C73885F00DA7960 /* LoginScreen.swift in Sources */,
