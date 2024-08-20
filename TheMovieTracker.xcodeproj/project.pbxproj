@@ -27,6 +27,7 @@
 		6C5C93EF2C73CAB600DA7960 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93EE2C73CAB600DA7960 /* SearchViewController.swift */; };
 		6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */; };
 		CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */; };
+		CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		6C5C93EE2C73CAB600DA7960 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 		6C5C93E12C73C11B00DA7960 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				6C5C93E02C73BC9D00DA7960 /* RegisterScreen.swift in Sources */,
 				6C5C93DE2C73BC1800DA7960 /* RegisterViewController.swift in Sources */,
 				6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */,
+				CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */,
 				6C5C93D52C7387C300DA7960 /* LoginViewController.swift in Sources */,
 				6C5C93EA2C73CA3900DA7960 /* MainTabBarViewController.swift in Sources */,
 				6C5C939D2C73741500DA7960 /* WelcomeViewController.swift in Sources */,
