@@ -52,7 +52,7 @@ class WelcomeScreen: UIView {
     
     lazy var entryButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .backGroundButton
+        button.backgroundColor = .appGray
         button.setTitle("ENTRAR", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(UIColor.black, for: .normal)

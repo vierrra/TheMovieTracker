@@ -34,14 +34,13 @@ class RegisterScreen: UIView {
     lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.text = "Faça seu cadastro"
-        label.textColor = .colorLabel
+        label.textColor = .appGray
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
     
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        
         textField.borderStyle = .roundedRect
         textField.attributedPlaceholder = NSAttributedString(string: "Digite um email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
         textField.textColor = .white
@@ -56,7 +55,6 @@ class RegisterScreen: UIView {
     
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        
         textField.borderStyle = .roundedRect
         textField.attributedPlaceholder = NSAttributedString(string: "Digite uma senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
         textField.textColor = .white
@@ -66,12 +64,12 @@ class RegisterScreen: UIView {
         textField.layer.borderWidth = 1
         textField.backgroundColor = .backGrounTextField
         textField.keyboardType = .emailAddress
+        textField.isSecureTextEntry = true
         return textField
     }()
     
     lazy var confirmPasswordTextField: UITextField = {
         let textField = UITextField()
-        
         textField.borderStyle = .roundedRect
         textField.attributedPlaceholder = NSAttributedString(string: "Confime a senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
         textField.textColor = .white
@@ -81,12 +79,13 @@ class RegisterScreen: UIView {
         textField.layer.borderWidth = 1
         textField.backgroundColor = .backGrounTextField
         textField.keyboardType = .emailAddress
+        textField.isSecureTextEntry = true
         return textField
     }()
     
     lazy var registerButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .backGroundButton
+        button.backgroundColor = .appGray
         button.setTitle("CADASTRAR", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(UIColor.black, for: .normal)

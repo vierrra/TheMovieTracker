@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     
     private  func isEnabledLoginButton(isEnable: Bool) {
         screen?.loginButton.isEnabled = isEnable
-        screen?.loginButton.backgroundColor = isEnable ? .colorLabel : .lightGray
+        screen?.loginButton.backgroundColor = isEnable ? .appGray : .lightGray
     }
 }
 

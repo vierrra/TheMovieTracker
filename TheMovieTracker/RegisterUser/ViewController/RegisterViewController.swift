@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     
     private var screen: RegisterScreen?
     private var viewModel: RegisterViewModel? = RegisterViewModel()
@@ -30,7 +30,7 @@ class RegisterViewController: UIViewController {
     
     private  func isEnabledLoginButton(isEnable: Bool) {
         screen?.registerButton.isEnabled = isEnable
-        screen?.registerButton.backgroundColor = isEnable ? .colorLabel : .lightGray
+        screen?.registerButton.backgroundColor = isEnable ? .appGray : .lightGray
     }
 }
 
@@ -42,7 +42,7 @@ extension RegisterViewController: RegisterScreenProtocol {
             //TO DO: Colocar tratativa de sucesso ou error
             print("Segue com o Registro no firebase")
         } else {
-            
+            showAlertWithCompletion("Atenção", "A senha e a confirmação da senha devem ser iguais", "Ok") {}
         }
     }
 }

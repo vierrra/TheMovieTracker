@@ -36,7 +36,7 @@ class LoginScreen: UIView {
     lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.text = "Login"
-        label.textColor = .colorLabel
+        label.textColor = .appGray
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
@@ -68,13 +68,14 @@ class LoginScreen: UIView {
         textField.layer.borderWidth = 1
         textField.backgroundColor = .backGrounTextField
         textField.keyboardType = .emailAddress
+        textField.isSecureTextEntry = true
         return textField
     }()
     
     lazy var faceIdImageView: UIImageView = {
         let image = UIImageView()
         image.image =  UIImage(systemName: "faceid")?.withRenderingMode(.alwaysTemplate)
-        image.tintColor = .colorLabel
+        image.tintColor = .appGray
         image.contentMode = .scaleAspectFill
         return image
     }()
@@ -84,7 +85,7 @@ class LoginScreen: UIView {
         button.backgroundColor = .clear
         button.setTitle("Face ID?", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitleColor(UIColor.colorLabel, for: .normal)
+        button.setTitleColor(UIColor.appGray, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(tappedFaceId), for: .touchUpInside)
@@ -100,7 +101,7 @@ class LoginScreen: UIView {
         button.backgroundColor = .clear
         button.setTitle("Esqueceu sua senha?", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitleColor(UIColor.colorLabel, for: .normal)
+        button.setTitleColor(UIColor.appGray, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(tappedRecoveryPassword), for: .touchUpInside)
@@ -113,7 +114,7 @@ class LoginScreen: UIView {
     
     lazy var loginButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .backGroundButton
+        button.backgroundColor = .appGray
         button.setTitle("LOGIN", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(UIColor.black, for: .normal)

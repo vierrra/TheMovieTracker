@@ -9,33 +9,47 @@ import Foundation
 import UIKit
 
 class BaseViewController: UIViewController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    configGestureRecognizer()
-  }
-
-  func configGestureRecognizer() {
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedLogin))
-    tap.cancelsTouchesInView = false
-    tap.numberOfTapsRequired = 1
-    view.addGestureRecognizer(tap)
-
-    // Alguns elementos necessitam da implementação (label, ImageView, entre outros...)
-    //    nomeElemento.isUserInteractionEnabled = true
-  }
-
-  @objc func tappedLogin() {
-    view.endEditing(true)
-  }
-
-  func confirmAlert(title: String, message: String, titleButton: String) {
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let okButton = UIAlertAction(title: titleButton, style: .default)
-
-    alertController.addAction(okButton)
-    present(alertController, animated: true)
-  }
-
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configGestureRecognizer()
+    }
+    
+    func configGestureRecognizer() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedLogin))
+        tap.cancelsTouchesInView = false
+        tap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tap)
+        
+        // Alguns elementos necessitam da implementação (label, ImageView, entre outros...)
+        //    nomeElemento.isUserInteractionEnabled = true
+    }
+    
+    @objc func tappedLogin() {
+        view.endEditing(true)
+    }
+    
+    func showAlertWithCompletion(_ title: String, _ message: String, _ titleButton: String, completion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let attributedStringTitle = NSAttributedString(string: title, attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .semibold),
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ])
+        
+        let attributedStringMessage = NSAttributedString(string: message, attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12, weight: .regular),
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ])
+        
+        alertController.setValue(attributedStringTitle, forKey: "attributedTitle")
+        alertController.setValue(attributedStringMessage, forKey: "attributedMessage")
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.backGrounTextField
+        
+        let okButton = UIAlertAction(title: titleButton, style: .default) { _ in
+            completion()
+        }
+        
+        alertController.addAction(okButton)
+        present(alertController, animated: true)
+    }
 }
