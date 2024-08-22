@@ -29,8 +29,8 @@ class RegisterViewModel {
         }
     }
     
-    public func validateEqualsPassword(_ password: UITextField, _ confirmPasswordTextField: UITextField ) -> Bool {
-        if password.text == confirmPasswordTextField.text {
+    public func validateEqualsPassword(_ password: String, _ confirmPasswordTextField: String ) -> Bool {
+        if password == confirmPasswordTextField {
             return true
         } else {
             return false

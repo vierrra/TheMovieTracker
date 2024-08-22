@@ -36,8 +36,14 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController: RegisterScreenProtocol {
     func tappedRegister() {
-        //TO DO: Colocar tratativa de sucesso ou error
-        print("Registro")
+        guard let viewModel = viewModel else { return }
+        
+        if viewModel.validateEqualsPassword(screen?.passwordTextField.text ?? "", screen?.confirmPasswordTextField.text ?? "") {
+            //TO DO: Colocar tratativa de sucesso ou error
+            print("Segue com o Registro no firebase")
+        } else {
+            
+        }
     }
 }
 

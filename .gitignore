@@ -77,7 +77,7 @@ xcuserdata
 # Workspace layout is quite spammy. For reference:
 #
 # (root)/
-#   (TheMovieTracke).xcodeproj/
+#   TheMovieTracker.xcodeproj/
 #     project.pbxproj
 #     project.xcworkspace/
 #       contents.xcworkspacedata
@@ -95,6 +95,11 @@ xcuserdata
 #
 #
 !xcshareddata
+
+## Cocoapods
+Pods/
+*.xcworkspace
+Podfile.lock
 
 
 ####
