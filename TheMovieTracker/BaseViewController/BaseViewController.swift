@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
     }
     
     func configGestureRecognizer() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedLogin))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedGesture))
         tap.cancelsTouchesInView = false
         tap.numberOfTapsRequired = 1
         view.addGestureRecognizer(tap)
@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
         //    nomeElemento.isUserInteractionEnabled = true
     }
     
-    @objc func tappedLogin() {
+    @objc func tappedGesture() {
         view.endEditing(true)
     }
     

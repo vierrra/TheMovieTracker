@@ -67,7 +67,7 @@ class LoginScreen: UIView {
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
         textField.backgroundColor = .backGrounTextField
-        textField.keyboardType = .emailAddress
+        textField.keyboardType = .numberPad
         textField.isSecureTextEntry = true
         return textField
     }()

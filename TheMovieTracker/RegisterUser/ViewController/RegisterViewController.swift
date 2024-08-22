@@ -42,7 +42,7 @@ extension RegisterViewController: RegisterScreenProtocol {
             //TO DO: Colocar tratativa de sucesso ou error
             print("Segue com o Registro no firebase")
         } else {
-            showAlertWithCompletion("Atenção", "A senha e a confirmação da senha devem ser iguais", "Ok") {}
+            showAlertWithCompletion("Atenção", "A senha e a confirmação da senha devem ser iguais.", "Ok") {}
         }
     }
 }
