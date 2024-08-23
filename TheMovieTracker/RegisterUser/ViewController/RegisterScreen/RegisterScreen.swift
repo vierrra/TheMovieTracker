@@ -48,7 +48,7 @@ class RegisterScreen: UIView {
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
-        textField.backgroundColor = .backGrounTextField
+        textField.backgroundColor = .backGroundTextField
         textField.keyboardType = .emailAddress
         return textField
     }()
@@ -62,7 +62,7 @@ class RegisterScreen: UIView {
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
-        textField.backgroundColor = .backGrounTextField
+        textField.backgroundColor = .backGroundTextField
         textField.keyboardType = .numberPad
         textField.isSecureTextEntry = true
         return textField
@@ -77,7 +77,7 @@ class RegisterScreen: UIView {
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
-        textField.backgroundColor = .backGrounTextField
+        textField.backgroundColor = .backGroundTextField
         textField.keyboardType = .numberPad
         textField.isSecureTextEntry = true
         return textField

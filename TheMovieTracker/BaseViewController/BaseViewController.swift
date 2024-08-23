@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func showAlertWithCompletion(_ title: String, _ message: String, _ titleButton: String, completion: @escaping () -> Void) {
+    func showAlertWithCompletion(_ title: String, _ message: String, _ titleButton: String, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let attributedStringTitle = NSAttributedString(string: title, attributes: [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .semibold),
@@ -43,10 +43,10 @@ class BaseViewController: UIViewController {
         
         alertController.setValue(attributedStringTitle, forKey: "attributedTitle")
         alertController.setValue(attributedStringMessage, forKey: "attributedMessage")
-        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.backGrounTextField
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.backGroundTextField
         
         let okButton = UIAlertAction(title: titleButton, style: .default) { _ in
-            completion()
+            completion?()
         }
         
         alertController.addAction(okButton)

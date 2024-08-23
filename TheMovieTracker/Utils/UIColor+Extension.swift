@@ -17,7 +17,7 @@ extension UIColor {
         return UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
     
-    @nonobjc class var backGrounTextField: UIColor {
+    @nonobjc class var backGroundTextField: UIColor {
         return UIColor(red: 48/255, green: 48/255, blue: 51/255, alpha: 1)
     }
     

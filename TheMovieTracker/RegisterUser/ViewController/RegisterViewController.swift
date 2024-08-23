@@ -41,14 +41,21 @@ extension RegisterViewController: RegisterScreenProtocol {
         if viewModel.validateEqualsPassword(screen?.passwordTextField.text ?? "", screen?.confirmPasswordTextField.text ?? "") {
             //TO DO: Colocar tratativa de sucesso ou error
             showAlertWithCompletion("Parabéns", "O usuário e a senha foram cadastrados com sucesso.", "Ok") {
-                self.navigationController?.popToRootViewController(animated: true)
-                // Verificar se tem uma forma melhor de fazer esse redirecionamento
-                let vc = LoginViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+//                self.navigationController?.popToRootViewController(animated: true)
+//                Verificar se tem uma forma melhor de fazer esse redirecionamento
+//                let vc = LoginViewController()
+//                self.navigationController?.pushViewController(vc, animated: true)
+                if let loginVC = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController}) {
+                    self.navigationController?.popToViewController(loginVC, animated: true)
+                } else {
+                    let loginVC = LoginViewController()
+                    self.navigationController?.pushViewController(loginVC, animated: true)
+                }
+                
             }
             print("Segue com o Registro no firebase")
         } else {
-            showAlertWithCompletion("Atenção", "A senha e a confirmação da senha devem ser iguais.", "Ok") {}
+            showAlertWithCompletion("Atenção", "A senha e a confirmação da senha devem ser iguais.", "Ok")
         }
     }
 }

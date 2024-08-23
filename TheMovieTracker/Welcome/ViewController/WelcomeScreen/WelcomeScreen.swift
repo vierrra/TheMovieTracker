@@ -14,7 +14,7 @@ protocol WelcomeScreenProtocol: AnyObject {
 
 class WelcomeScreen: UIView {
     
-    private weak var delagate: WelcomeScreenProtocol?
+    private weak var delegate: WelcomeScreenProtocol?
     
     init() {
         super.init(frame: .zero)
@@ -63,7 +63,7 @@ class WelcomeScreen: UIView {
     }()
     
     @objc func tappedEntry() {
-        self.delagate?.tappedEntry()
+        self.delegate?.tappedEntry()
     }
     
     lazy var registerButton: UIButton = {
@@ -80,11 +80,11 @@ class WelcomeScreen: UIView {
     }()
     
     @objc func tappedRegister() {
-        self.delagate?.tappedRegister()
+        self.delegate?.tappedRegister()
     }
     
     public func delegate(_ delegate: WelcomeScreenProtocol) {
-        self.delagate = delegate
+        self.delegate = delegate
     }
     
     private func setup() {

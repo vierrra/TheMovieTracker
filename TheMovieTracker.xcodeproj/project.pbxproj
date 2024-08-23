@@ -16,8 +16,8 @@
 		6C5C93BA2C73741A00DA7960 /* TheMovieTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93B92C73741A00DA7960 /* TheMovieTrackerUITests.swift */; };
 		6C5C93BC2C73741A00DA7960 /* TheMovieTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93BB2C73741A00DA7960 /* TheMovieTrackerUITestsLaunchTests.swift */; };
 		6C5C93CC2C73779B00DA7960 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93CB2C73779B00DA7960 /* WelcomeScreen.swift */; };
-		6C5C93CF2C7378E000DA7960 /* UIViewLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93CE2C7378E000DA7960 /* UIViewLayoutExtension.swift */; };
-		6C5C93D12C73824A00DA7960 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93D02C73824A00DA7960 /* UIColorExtension.swift */; };
+		6C5C93CF2C7378E000DA7960 /* UIViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93CE2C7378E000DA7960 /* UIViewLayout+Extension.swift */; };
+		6C5C93D12C73824A00DA7960 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93D02C73824A00DA7960 /* UIColor+Extension.swift */; };
 		6C5C93D52C7387C300DA7960 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93D42C7387C300DA7960 /* LoginViewController.swift */; };
 		6C5C93D82C73885F00DA7960 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93D72C73885F00DA7960 /* LoginScreen.swift */; };
 		6C5C93DE2C73BC1800DA7960 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93DD2C73BC1800DA7960 /* RegisterViewController.swift */; };
@@ -27,6 +27,7 @@
 		6C5C93EF2C73CAB600DA7960 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93EE2C73CAB600DA7960 /* SearchViewController.swift */; };
 		6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */; };
 		CC5E71092C777CCC004F0BC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5E71082C777CCC004F0BC2 /* BaseViewController.swift */; };
+		CC5E710B2C78120E004F0BC2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5E710A2C78120E004F0BC2 /* String+Extension.swift */; };
 		CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */; };
 		CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -62,8 +63,8 @@
 		6C5C93B92C73741A00DA7960 /* TheMovieTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieTrackerUITests.swift; sourceTree = "<group>"; };
 		6C5C93BB2C73741A00DA7960 /* TheMovieTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6C5C93CB2C73779B00DA7960 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
-		6C5C93CE2C7378E000DA7960 /* UIViewLayoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewLayoutExtension.swift; sourceTree = "<group>"; };
-		6C5C93D02C73824A00DA7960 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		6C5C93CE2C7378E000DA7960 /* UIViewLayout+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewLayout+Extension.swift"; sourceTree = "<group>"; };
+		6C5C93D02C73824A00DA7960 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6C5C93D42C7387C300DA7960 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6C5C93D72C73885F00DA7960 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		6C5C93DD2C73BC1800DA7960 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		6C5C93EE2C73CAB600DA7960 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CC5E71082C777CCC004F0BC2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CC5E710A2C78120E004F0BC2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				CC5E71072C777CAC004F0BC2 /* BaseViewController */,
-				6C5C93CD2C73788800DA7960 /* Util */,
+				6C5C93CD2C73788800DA7960 /* Utils */,
 				6C5C93C82C73772300DA7960 /* Welcome */,
 				6C5C93D22C73878100DA7960 /* Login */,
 				6C5C93DA2C73BBB200DA7960 /* RegisterUser */,
@@ -185,13 +187,14 @@
 			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
-		6C5C93CD2C73788800DA7960 /* Util */ = {
+		6C5C93CD2C73788800DA7960 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6C5C93D02C73824A00DA7960 /* UIColorExtension.swift */,
-				6C5C93CE2C7378E000DA7960 /* UIViewLayoutExtension.swift */,
+				6C5C93D02C73824A00DA7960 /* UIColor+Extension.swift */,
+				6C5C93CE2C7378E000DA7960 /* UIViewLayout+Extension.swift */,
+				CC5E710A2C78120E004F0BC2 /* String+Extension.swift */,
 			);
-			path = Util;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		6C5C93D22C73878100DA7960 /* Login */ = {
@@ -474,12 +477,13 @@
 				CC5E71092C777CCC004F0BC2 /* BaseViewController.swift in Sources */,
 				6C5C93992C73741500DA7960 /* AppDelegate.swift in Sources */,
 				6C5C93CC2C73779B00DA7960 /* WelcomeScreen.swift in Sources */,
+				CC5E710B2C78120E004F0BC2 /* String+Extension.swift in Sources */,
 				CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */,
 				6C5C939B2C73741500DA7960 /* SceneDelegate.swift in Sources */,
 				6C5C93EF2C73CAB600DA7960 /* SearchViewController.swift in Sources */,
 				6C5C93D82C73885F00DA7960 /* LoginScreen.swift in Sources */,
-				6C5C93CF2C7378E000DA7960 /* UIViewLayoutExtension.swift in Sources */,
-				6C5C93D12C73824A00DA7960 /* UIColorExtension.swift in Sources */,
+				6C5C93CF2C7378E000DA7960 /* UIViewLayout+Extension.swift in Sources */,
+				6C5C93D12C73824A00DA7960 /* UIColor+Extension.swift in Sources */,
 				6C5C93EC2C73CA7100DA7960 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
