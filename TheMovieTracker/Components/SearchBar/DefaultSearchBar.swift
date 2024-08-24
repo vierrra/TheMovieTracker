@@ -65,7 +65,7 @@ class DefaultSearchBar: UISearchBar {
     
     func customizeCancelButton() {
         if let cancelButton = self.value(forKey: "cancelButton") as? UIButton {
-            cancelButton.setTitleColor(.searchTextFieldComponents, for: .normal)
+            cancelButton.setTitleColor(.white, for: .normal)
         }
     }
 }

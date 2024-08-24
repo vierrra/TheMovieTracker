@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.configProtocols()
-        self.isEnabledLoginButton(isEnable: false)
+        //self.isEnabledLoginButton(isEnable: false)
     }
     
     private func configProtocols() {

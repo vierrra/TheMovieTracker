@@ -90,10 +90,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        cell.textLabel?.text = filteredData[indexPath.row]
-        //cell.contentView.backgroundColor = .viewBackground
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
+        cell?.contentView.backgroundColor = .viewBackground
+        
+        cell?.setupCell(indexPath.row)
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 250
+        }
+        
+        if indexPath.row == 1 {
+            return 50
+        }
+        
+        return 300
     }
 }
 
