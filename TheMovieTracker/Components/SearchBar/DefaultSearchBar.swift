@@ -35,6 +35,7 @@ class DefaultSearchBar: UISearchBar {
         changedColorPlaceHolder()
         changedColorIcon()
         changedColorText()
+        changedColorClearButton()
     }
     
     private func changedColorPlaceHolder() {
@@ -54,6 +55,12 @@ class DefaultSearchBar: UISearchBar {
     
     private func changedColorText() {
         self.searchTextField.textColor = .white
+    }
+    
+    private func changedColorClearButton() {
+        let clearButton = self.searchTextField.value(forKey: "_clearButton") as! UIButton
+        clearButton.setImage(clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        clearButton.tintColor = UIColor.white
     }
     
     func customizeCancelButton() {

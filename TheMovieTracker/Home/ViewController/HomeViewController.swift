@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private var screen: HomeScreen?
-    private var data = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Lemon", "Mango", "Orange", "Peach"]
+    //private var data = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Lemon", "Mango", "Orange", "Peach"]
     private var filteredData = [String]()
     
     override func loadView() {
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         customizeNavigation()
-        filteredData = data
+        //filteredData = data
     }
     
     private func customizeNavigation() {
@@ -47,16 +47,16 @@ class HomeViewController: UIViewController {
         screen?.searchBar.onTextDidChange = { [weak self] searchText in
             guard let self = self else { return }
             if searchText.isEmpty {
-                self.filteredData = self.data
+                //self.filteredData = self.data
             } else {
-                self.filteredData = self.data.filter { $0.lowercased().contains(searchText.lowercased()) }
+                //self.filteredData = self.data.filter { $0.lowercased().contains(searchText.lowercased()) }
             }
             
             screen?.tableView.reloadData()
         }
         
         screen?.searchBar.onCancelButtonClicked = { [weak self] in
-            self?.filteredData = self?.data ?? []
+            //self?.filteredData = self?.data ?? []
             self?.screen?.tableView.reloadData()
         }
     }
@@ -85,14 +85,15 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        //return filteredData.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = filteredData[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        cell.textLabel?.text = filteredData[indexPath.row]
         //cell.contentView.backgroundColor = .viewBackground
-        return cell
+        return UITableViewCell()
     }
 }
 
