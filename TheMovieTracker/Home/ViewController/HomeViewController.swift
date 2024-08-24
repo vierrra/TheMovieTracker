@@ -8,14 +8,23 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .viewBackground
+    
+    private var screen: HomeScreen?
+    private var data = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Lemon", "Mango", "Orange", "Peach"]
+    private var filteredData = [String]()
+    
+    override func loadView() {
+        screen = HomeScreen()
+        view = screen
+        
+        screen?.configProtocols(self, self, self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.customizeNavigation()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        customizeNavigation()
+        filteredData = data
     }
     
     private func customizeNavigation() {
@@ -33,4 +42,57 @@ class HomeViewController: UIViewController {
     @objc func tappedUserProfile() {
         
     }
+    
+    private func configFilteredDataSearchBar() {
+        screen?.searchBar.onTextDidChange = { [weak self] searchText in
+            guard let self = self else { return }
+            if searchText.isEmpty {
+                self.filteredData = self.data
+            } else {
+                self.filteredData = self.data.filter { $0.lowercased().contains(searchText.lowercased()) }
+            }
+            
+            screen?.tableView.reloadData()
+        }
+        
+        screen?.searchBar.onCancelButtonClicked = { [weak self] in
+            self?.filteredData = self?.data ?? []
+            self?.screen?.tableView.reloadData()
+        }
+    }
 }
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        configFilteredDataSearchBar()
+        screen?.searchBar.onTextDidChange?(searchText)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        screen?.searchBar.customizeCancelButton()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+        screen?.searchBar.onCancelButtonClicked?()
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = filteredData[indexPath.row]
+        //cell.contentView.backgroundColor = .viewBackground
+        return cell
+    }
+}
+
