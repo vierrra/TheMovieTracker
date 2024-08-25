@@ -12,6 +12,7 @@ class HomeTableViewCell: UITableViewCell {
     static let identifier: String = String(describing: HomeTableViewCell.self)
     
     private var itemCount: Int = 0
+    private var viewModel: HomeTableViewCellViewModel = HomeTableViewCellViewModel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,7 +29,7 @@ class HomeTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         //Aqui registrar as três células
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+        collectionView.register(Top10CollectionViewCell.self, forCellWithReuseIdentifier: Top10CollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -69,11 +70,12 @@ class HomeTableViewCell: UITableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    public func setupCell(_ indexPath: Int) {
+    public func setupCell(_ indexPath: Int, _ movies: Movies) {
         switch indexPath {
         case 0:
             itemCount = 10
             configureHorizontalCollectionLayout()
+            viewModel.setMovie(movie: movies)
         case 1:
             itemCount = 4
             configureFixedCollectionLayout()
@@ -94,23 +96,32 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     private func configConstraints() {
-        
-        collectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor)
+        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }
 }
 
 extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount
+        return viewModel.numberOfItemsInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //Aqui é onde definirei qual cell da collection será utilizada que neste caso serão 3 células
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
-        cell.backgroundColor = .lightGray // Exemplo de cor, personalize conforme necessário
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
+        cell?.setupCell(viewModel.loadCurrentItem(indexPath: indexPath))
+        return cell ?? UICollectionViewCell()
         
-        return cell
+//        if indexPath.row == 0 {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
+//            return cell ?? UICollectionViewCell()
+//        } else {
+//            return UICollectionViewCell()
+//        }
+        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
+//        cell.backgroundColor = .lightGray // Exemplo de cor, personalize conforme necessário
+        
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

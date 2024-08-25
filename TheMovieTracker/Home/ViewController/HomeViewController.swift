@@ -10,8 +10,10 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private var screen: HomeScreen?
-    //private var data = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Lemon", "Mango", "Orange", "Peach"]
-    private var filteredData = [String]()
+    private var viewModel: HomeViewModel = HomeViewModel()
+    
+    //Adaptar depois quando for usar o search
+    //private var filteredData = [String]()
     
     override func loadView() {
         screen = HomeScreen()
@@ -42,30 +44,30 @@ class HomeViewController: UIViewController {
     @objc func tappedUserProfile() {
         
     }
-    
-    private func configFilteredDataSearchBar() {
-        screen?.searchBar.onTextDidChange = { [weak self] searchText in
-            guard let self = self else { return }
-            if searchText.isEmpty {
-                //self.filteredData = self.data
-            } else {
-                //self.filteredData = self.data.filter { $0.lowercased().contains(searchText.lowercased()) }
-            }
-            
-            screen?.tableView.reloadData()
-        }
-        
-        screen?.searchBar.onCancelButtonClicked = { [weak self] in
-            //self?.filteredData = self?.data ?? []
-            self?.screen?.tableView.reloadData()
-        }
-    }
+    //Descomentar depois para usar o search
+//    private func configFilteredDataSearchBar() {
+//        screen?.searchBar.onTextDidChange = { [weak self] searchText in
+//            guard let self = self else { return }
+//            if searchText.isEmpty {
+//                self.filteredData = self.data
+//            } else {
+//                self.filteredData = self.data.filter { $0.lowercased().contains(searchText.lowercased()) }
+//            }
+//            
+//            screen?.tableView.reloadData()
+//        }
+//        
+//        screen?.searchBar.onCancelButtonClicked = { [weak self] in
+//            self?.filteredData = self?.data ?? []
+//            self?.screen?.tableView.reloadData()
+//        }
+//    }
 }
 
 extension HomeViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        configFilteredDataSearchBar()
+        //configFilteredDataSearchBar()
         screen?.searchBar.onTextDidChange?(searchText)
     }
     
@@ -86,7 +88,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return filteredData.count
-        return 1
+        return viewModel.numberOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,7 +107,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.contentView.backgroundColor = .yellow
         }
         
-        cell?.setupCell(indexPath.row)
+        cell?.setupCell(indexPath.row, viewModel.loadCurrentDetail(indexPath: indexPath))
         return cell ?? UITableViewCell()
     }
     

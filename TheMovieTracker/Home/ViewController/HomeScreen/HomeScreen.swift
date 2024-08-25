@@ -27,8 +27,8 @@ class HomeScreen: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
-//        tableView.separatorStyle = .none
-//        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
         return tableView
     }()

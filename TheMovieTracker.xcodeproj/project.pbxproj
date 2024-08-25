@@ -27,6 +27,10 @@
 		6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */; };
 		CC5E71092C777CCC004F0BC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5E71082C777CCC004F0BC2 /* BaseViewController.swift */; };
 		CC5E710B2C78120E004F0BC2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5E710A2C78120E004F0BC2 /* String+Extension.swift */; };
+		CCB741162C7B7DBC00BACB13 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB741152C7B7DBC00BACB13 /* HomeModel.swift */; };
+		CCB741192C7B869C00BACB13 /* Top10CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB741182C7B869C00BACB13 /* Top10CollectionViewCell.swift */; };
+		CCC66CDE2C7BE82C00F3D001 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC66CDD2C7BE82C00F3D001 /* HomeViewModel.swift */; };
+		CCC66CE02C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC66CDF2C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift */; };
 		CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */; };
 		CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */; };
 		CCEF54FC2C7A583300406DFA /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF54FB2C7A583300406DFA /* HomeScreen.swift */; };
@@ -77,6 +81,10 @@
 		6C5C93F12C73CAF700DA7960 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CC5E71082C777CCC004F0BC2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC5E710A2C78120E004F0BC2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CCB741152C7B7DBC00BACB13 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		CCB741182C7B869C00BACB13 /* Top10CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top10CollectionViewCell.swift; sourceTree = "<group>"; };
+		CCC66CDD2C7BE82C00F3D001 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CCC66CDF2C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		CCEF54FB2C7A583300406DFA /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -284,7 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				CCEF55052C7A6A3D00406DFA /* Cell */,
+				CCB741132C7B7D1E00BACB13 /* Model */,
 				6C5C93E82C73C9F200DA7960 /* ViewController */,
+				CCB741142C7B7D2800BACB13 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -308,8 +318,8 @@
 		6C5C93E82C73C9F200DA7960 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF54FA2C7A581D00406DFA /* HomeScreen */,
 				6C5C93EB2C73CA7100DA7960 /* HomeViewController.swift */,
+				CCEF54FA2C7A581D00406DFA /* HomeScreen */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -328,6 +338,31 @@
 				CC5E71082C777CCC004F0BC2 /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		CCB741132C7B7D1E00BACB13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCB741152C7B7DBC00BACB13 /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCB741142C7B7D2800BACB13 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CCC66CDD2C7BE82C00F3D001 /* HomeViewModel.swift */,
+				CCC66CDF2C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CCB741172C7B866300BACB13 /* Top10Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CCB741182C7B869C00BACB13 /* Top10CollectionViewCell.swift */,
+			);
+			path = Top10Cell;
 			sourceTree = "<group>";
 		};
 		CCEF54FA2C7A581D00406DFA /* HomeScreen */ = {
@@ -374,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				CCEF55062C7A6A4800406DFA /* TableViewCell */,
+				CCB741172C7B866300BACB13 /* Top10Cell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -518,8 +554,10 @@
 			files = (
 				6C5C93E02C73BC9D00DA7960 /* RegisterScreen.swift in Sources */,
 				6C5C93DE2C73BC1800DA7960 /* RegisterViewController.swift in Sources */,
+				CCB741162C7B7DBC00BACB13 /* HomeModel.swift in Sources */,
 				CCEF55002C7A58DD00406DFA /* DefaultSearchBar.swift in Sources */,
 				6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */,
+				CCB741192C7B869C00BACB13 /* Top10CollectionViewCell.swift in Sources */,
 				CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */,
 				6C5C93D52C7387C300DA7960 /* LoginViewController.swift in Sources */,
 				6C5C93EA2C73CA3900DA7960 /* MainTabBarViewController.swift in Sources */,
@@ -530,9 +568,11 @@
 				CCEF55042C7A5AD000406DFA /* SearchViewController.swift in Sources */,
 				CCEF54FC2C7A583300406DFA /* HomeScreen.swift in Sources */,
 				6C5C93CC2C73779B00DA7960 /* WelcomeScreen.swift in Sources */,
+				CCC66CE02C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift in Sources */,
 				CC5E710B2C78120E004F0BC2 /* String+Extension.swift in Sources */,
 				CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */,
 				6C5C939B2C73741500DA7960 /* SceneDelegate.swift in Sources */,
+				CCC66CDE2C7BE82C00F3D001 /* HomeViewModel.swift in Sources */,
 				6C5C93D82C73885F00DA7960 /* LoginScreen.swift in Sources */,
 				6C5C93CF2C7378E000DA7960 /* UIViewLayout+Extension.swift in Sources */,
 				6C5C93D12C73824A00DA7960 /* UIColor+Extension.swift in Sources */,
