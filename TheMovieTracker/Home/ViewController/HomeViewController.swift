@@ -86,12 +86,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return filteredData.count
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-        cell?.contentView.backgroundColor = .viewBackground
+        
+        if indexPath.row == 0 {
+            cell?.contentView.backgroundColor = .green
+        }
+        
+        if indexPath.row == 1 {
+            cell?.contentView.backgroundColor = .red
+        }
+        
+        
+        if indexPath.row == 2 {
+            cell?.contentView.backgroundColor = .yellow
+        }
         
         cell?.setupCell(indexPath.row)
         return cell ?? UITableViewCell()
@@ -103,7 +115,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 1 {
-            return 50
+            return 25
         }
         
         return 300
