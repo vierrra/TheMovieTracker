@@ -30,12 +30,21 @@ class Top10CollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var bannerMovie: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "incrivel_hulk")
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
-        imageView.contentMode = .scaleAspectFill
-        return imageView
+        let image = UIImageView()
+        image.image = UIImage(named: "incrivel_hulk")
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 15
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    lazy var favoriteImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "favorite2")?.withRenderingMode(.alwaysTemplate)
+        image.tintColor = .yellow
+        image.contentMode = .scaleAspectFill
+        image.isHidden = false
+        return image
     }()
     
     public func setupCell(_ detailMovie: DetailMovies) {
@@ -50,11 +59,14 @@ class Top10CollectionViewCell: UICollectionViewCell {
     private func buildViewHierarchy() {
         contentView.addSubview(cardView)
         cardView.addSubview(bannerMovie)
+        bannerMovie.addSubview(favoriteImageView)
     }
     
     private func configConstraints() {
         cardView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         
         bannerMovie.anchor(top: cardView.topAnchor, leading: cardView.leadingAnchor, bottom: cardView.bottomAnchor, trailing: cardView.trailingAnchor)
+        
+        favoriteImageView.anchor(top: bannerMovie.topAnchor, trailing: bannerMovie.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 10), size: CGSize(width: 25, height: 25))
     }
 }
