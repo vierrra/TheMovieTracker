@@ -115,7 +115,7 @@ extension Top10CollectionTableViewCell: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
-        cell?.setupCell(viewModel.loadCurrentItem(indexPath: indexPath))
+        cell?.setupCell(indexPath.row + 1, viewModel.loadCurrentItem(indexPath: indexPath))
         return cell ?? UICollectionViewCell()
         
     }

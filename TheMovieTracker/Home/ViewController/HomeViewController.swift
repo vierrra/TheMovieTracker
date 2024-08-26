@@ -96,7 +96,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10CollectionTableViewCell.identifier, for: indexPath) as? Top10CollectionTableViewCell
-            cell?.contentView.backgroundColor = .orange
+            //cell?.contentView.backgroundColor = .orange
+            cell?.contentView.backgroundColor = .viewBackground
             cell?.setupCell(indexPath.row, viewModel.loadCurrentDetail(indexPath: indexPath))
             
             return cell ?? UITableViewCell()
