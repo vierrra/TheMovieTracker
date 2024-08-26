@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTableViewCellViewModel {
+class Top10CollectionTableViewModel {
     private var movie: Movies?
 
     func setMovie(movie: Movies) {

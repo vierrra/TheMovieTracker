@@ -30,13 +30,13 @@
 		CCB741162C7B7DBC00BACB13 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB741152C7B7DBC00BACB13 /* HomeModel.swift */; };
 		CCB741192C7B869C00BACB13 /* Top10CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB741182C7B869C00BACB13 /* Top10CollectionViewCell.swift */; };
 		CCC66CDE2C7BE82C00F3D001 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC66CDD2C7BE82C00F3D001 /* HomeViewModel.swift */; };
-		CCC66CE02C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC66CDF2C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift */; };
+		CCC66CE02C7BEEDB00F3D001 /* Top10CollectionTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC66CDF2C7BEEDB00F3D001 /* Top10CollectionTableViewModel.swift */; };
 		CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */; };
 		CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */; };
 		CCEF54FC2C7A583300406DFA /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF54FB2C7A583300406DFA /* HomeScreen.swift */; };
 		CCEF55002C7A58DD00406DFA /* DefaultSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF54FF2C7A58DD00406DFA /* DefaultSearchBar.swift */; };
 		CCEF55042C7A5AD000406DFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF55032C7A5AD000406DFA /* SearchViewController.swift */; };
-		CCEF55082C7A6A6E00406DFA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF55072C7A6A6E00406DFA /* HomeTableViewCell.swift */; };
+		CCEF55082C7A6A6E00406DFA /* Top10CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF55072C7A6A6E00406DFA /* Top10CollectionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,13 +84,13 @@
 		CCB741152C7B7DBC00BACB13 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		CCB741182C7B869C00BACB13 /* Top10CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top10CollectionViewCell.swift; sourceTree = "<group>"; };
 		CCC66CDD2C7BE82C00F3D001 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		CCC66CDF2C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		CCC66CDF2C7BEEDB00F3D001 /* Top10CollectionTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top10CollectionTableViewModel.swift; sourceTree = "<group>"; };
 		CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		CCEF54FB2C7A583300406DFA /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		CCEF54FF2C7A58DD00406DFA /* DefaultSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchBar.swift; sourceTree = "<group>"; };
 		CCEF55032C7A5AD000406DFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		CCEF55072C7A6A6E00406DFA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CCEF55072C7A6A6E00406DFA /* Top10CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top10CollectionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,7 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				CCC66CDD2C7BE82C00F3D001 /* HomeViewModel.swift */,
-				CCC66CDF2C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift */,
+				CCC66CDF2C7BEEDB00F3D001 /* Top10CollectionTableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -417,7 +417,7 @@
 		CCEF55062C7A6A4800406DFA /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF55072C7A6A6E00406DFA /* HomeTableViewCell.swift */,
+				CCEF55072C7A6A6E00406DFA /* Top10CollectionTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -563,12 +563,12 @@
 				6C5C93EA2C73CA3900DA7960 /* MainTabBarViewController.swift in Sources */,
 				6C5C939D2C73741500DA7960 /* WelcomeViewController.swift in Sources */,
 				CC5E71092C777CCC004F0BC2 /* BaseViewController.swift in Sources */,
-				CCEF55082C7A6A6E00406DFA /* HomeTableViewCell.swift in Sources */,
+				CCEF55082C7A6A6E00406DFA /* Top10CollectionTableViewCell.swift in Sources */,
 				6C5C93992C73741500DA7960 /* AppDelegate.swift in Sources */,
 				CCEF55042C7A5AD000406DFA /* SearchViewController.swift in Sources */,
 				CCEF54FC2C7A583300406DFA /* HomeScreen.swift in Sources */,
 				6C5C93CC2C73779B00DA7960 /* WelcomeScreen.swift in Sources */,
-				CCC66CE02C7BEEDB00F3D001 /* HomeTableViewCellViewModel.swift in Sources */,
+				CCC66CE02C7BEEDB00F3D001 /* Top10CollectionTableViewModel.swift in Sources */,
 				CC5E710B2C78120E004F0BC2 /* String+Extension.swift in Sources */,
 				CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */,
 				6C5C939B2C73741500DA7960 /* SceneDelegate.swift in Sources */,

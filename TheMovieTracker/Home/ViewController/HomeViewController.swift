@@ -92,23 +92,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
         
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Top10CollectionTableViewCell.identifier, for: indexPath) as? Top10CollectionTableViewCell
             cell?.contentView.backgroundColor = .orange
+            cell?.setupCell(indexPath.row, viewModel.loadCurrentDetail(indexPath: indexPath))
+            
+            return cell ?? UITableViewCell()
+        case 1:
+            print("Celula \(indexPath.row)")
+            return UITableViewCell()
+        case 2:
+            print("Celula \(indexPath.row)")
+            return UITableViewCell()
+        default:
+            return UITableViewCell()
         }
-        
-        if indexPath.row == 1 {
-            cell?.contentView.backgroundColor = .red
-        }
-        
-        
-        if indexPath.row == 2 {
-            cell?.contentView.backgroundColor = .yellow
-        }
-        
-        cell?.setupCell(indexPath.row, viewModel.loadCurrentDetail(indexPath: indexPath))
-        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

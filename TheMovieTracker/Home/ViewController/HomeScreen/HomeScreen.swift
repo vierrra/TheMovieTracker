@@ -29,7 +29,7 @@ class HomeScreen: UIView {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
-        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
+        tableView.register(Top10CollectionTableViewCell.self, forCellReuseIdentifier: Top10CollectionTableViewCell.identifier)
         return tableView
     }()
     
