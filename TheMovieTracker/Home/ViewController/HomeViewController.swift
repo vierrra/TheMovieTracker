@@ -95,7 +95,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
         
         if indexPath.row == 0 {
-            cell?.contentView.backgroundColor = .green
+            cell?.contentView.backgroundColor = .orange
         }
         
         if indexPath.row == 1 {

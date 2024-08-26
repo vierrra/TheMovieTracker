@@ -33,9 +33,9 @@ class HomeScreen: UIView {
         return tableView
     }()
     
-    public func configProtocols(_ searchBarDelegate: UISearchBarDelegate, _ tablerViewDelegate: UITableViewDelegate, _ tableViewDataSource: UITableViewDataSource) {
+    public func configProtocols(_ searchBarDelegate: UISearchBarDelegate, _ tableViewDelegate: UITableViewDelegate, _ tableViewDataSource: UITableViewDataSource) {
         searchBar.delegate = searchBarDelegate
-        tableView.delegate = tablerViewDelegate
+        tableView.delegate = tableViewDelegate
         tableView.dataSource = tableViewDataSource
     }
     
