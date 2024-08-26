@@ -108,20 +108,17 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //Aqui é onde definirei qual cell da collection será utilizada que neste caso serão 3 células
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
-        cell?.setupCell(viewModel.loadCurrentItem(indexPath: indexPath))
-        return cell ?? UICollectionViewCell()
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
+//        cell?.setupCell(viewModel.loadCurrentItem(indexPath: indexPath))
+//        return cell ?? UICollectionViewCell()
         
-//        if indexPath.row == 0 {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
-//            return cell ?? UICollectionViewCell()
-//        } else {
-//            return UICollectionViewCell()
-//        }
-        
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
-//        cell.backgroundColor = .lightGray // Exemplo de cor, personalize conforme necessário
-        
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as? Top10CollectionViewCell
+            cell?.setupCell(viewModel.loadCurrentItem(indexPath: indexPath))
+            return cell ?? UICollectionViewCell()
+        } else {
+            return UICollectionViewCell()
+        }
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
