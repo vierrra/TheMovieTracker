@@ -41,9 +41,9 @@ class Top10CollectionViewCell: UICollectionViewCell {
     
     lazy var numberLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray.withAlphaComponent(0.6)
+        label.textColor = .white.withAlphaComponent(0.6)
         //label.backgroundColor = .yellow.withAlphaComponent(0.6)
-        label.font = UIFont.systemFont(ofSize: 130, weight: .bold)
+        label.font = UIFont.boldSystemFont(ofSize: 130)
         label.text = "1"
         return label
     }()

@@ -30,6 +30,7 @@ class HomeScreen: UIView {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.register(Top10CollectionTableViewCell.self, forCellReuseIdentifier: Top10CollectionTableViewCell.identifier)
+        tableView.register(CategoryCollectionTableViewCell.self, forCellReuseIdentifier: CategoryCollectionTableViewCell.identifier)
         return tableView
     }()
     
