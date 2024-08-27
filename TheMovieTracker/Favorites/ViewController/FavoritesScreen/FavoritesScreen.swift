@@ -12,7 +12,7 @@ class FavoritesScreen: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .appBackGround
+        backgroundColor = .viewBackground
         addElements()
         configConstraints()
     }
@@ -27,7 +27,8 @@ class FavoritesScreen: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .appBackGround
+        tableView.backgroundColor = .clear
+//        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -40,10 +41,10 @@ class FavoritesScreen: UIView {
     func configConstraints () {
        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo:  leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
     

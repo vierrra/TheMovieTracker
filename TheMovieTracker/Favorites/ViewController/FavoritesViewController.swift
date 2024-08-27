@@ -5,7 +5,15 @@
 //  Created by Renato Vieira on 18/08/24.
 //
 
+
+// MARK: DELETAR VIEWBACKGROUND EM UICOLOREXTENSION
+
+
 import UIKit
+
+
+#warning("DELETAR IMAGENS EM ASSETS PARA NAO DAR CONFLITO")
+
 
 class FavoritesViewController: UIViewController {
 
@@ -50,8 +58,12 @@ extension FavoritesViewController: UITableViewDataSource {
     }
     
     
-    
-    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        <#code#>
+//    }
+    func UITableViewRowAction() {
+        
+    }
     
     
     

@@ -20,4 +20,10 @@ extension UIColor {
     @nonobjc class var backGrounTextField: UIColor {
         return UIColor(red: 48/255, green: 48/255, blue: 51/255, alpha: 1)
     }
+    
+    
+    // MARK: DELETAR VIEWBACKGROUND EM UICOLOREXTENSION
+    @nonobjc class var viewBackground: UIColor {
+        return UIColor(red: 48/255, green: 48/255, blue: 51/255, alpha: 1)
+    }
 }

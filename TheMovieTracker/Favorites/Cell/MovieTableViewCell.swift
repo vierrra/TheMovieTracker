@@ -25,6 +25,9 @@ class MovieTableViewCell: UITableViewCell {
         lazy var coverImageView: UIImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 15
+            imageView.contentMode = .scaleAspectFill
             return imageView
         }()
         
@@ -108,7 +111,7 @@ class MovieTableViewCell: UITableViewCell {
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             selectionStyle = .none
-            backgroundColor = .appBackGround
+            backgroundColor = .viewBackground
             addElements()
             configConstrainst()
             
@@ -137,11 +140,11 @@ class MovieTableViewCell: UITableViewCell {
                 
                 coverImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
                 coverImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-                coverImageView.heightAnchor.constraint(equalToConstant: 100),
-                coverImageView.widthAnchor.constraint(equalToConstant: 100),
+                coverImageView.heightAnchor.constraint(equalToConstant: 170),
+                coverImageView.widthAnchor.constraint(equalToConstant: 130),
 
                 
-                titleMovieLabel.topAnchor.constraint(equalTo: coverImageView.topAnchor, constant: 10),
+                titleMovieLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
                 titleMovieLabel.leadingAnchor.constraint(equalTo: coverImageView.trailingAnchor, constant: 20),
                 titleMovieLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 
@@ -191,7 +194,7 @@ class MovieTableViewCell: UITableViewCell {
         func setupCell(movies: Movies) {
             self.movies = movies
             titleMovieLabel.text  = movies.name  //nome do elemento da cell -> tipo = nomeDoParametroDoMetodo -> nome var da struc
-            coverImageView.image = UIImage(systemName: movies.cover)
+            coverImageView.image = UIImage(named: movies.cover)
             starImageView.image = UIImage(systemName: movies.starImage)?.withTintColor(.orange, renderingMode: .alwaysOriginal)
             ratingLabel.text = movies.rating
             ticketImageView.image = UIImage(systemName: movies.ticketImage)?.withTintColor(.white, renderingMode: .alwaysOriginal)
