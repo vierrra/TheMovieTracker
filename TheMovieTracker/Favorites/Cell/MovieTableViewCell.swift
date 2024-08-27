@@ -12,7 +12,6 @@ protocol FavoritesTableViewCellProtocol: AnyObject {
 }
 
 
-
 class MovieTableViewCell: UITableViewCell {
 
    
