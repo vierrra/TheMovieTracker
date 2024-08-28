@@ -20,4 +20,16 @@ extension UIColor {
     @nonobjc class var backGrounTextField: UIColor {
         return UIColor(red: 48/255, green: 48/255, blue: 51/255, alpha: 1)
     }
+    
+    @nonobjc class var viewBackground: UIColor {
+        return UIColor(red: 48/255, green: 48/255, blue: 51/255, alpha: 1)
+    }
+    
+    @nonobjc class var searchTextFieldBackground: UIColor {
+        return UIColor(red: 58/255, green: 63/255, blue: 71/255, alpha: 1)
+    }
+    
+    @nonobjc class var searchTextFieldComponents: UIColor {
+        return UIColor(red: 113/255, green: 104/255, blue: 104/255, alpha: 1)
+    }
 }
