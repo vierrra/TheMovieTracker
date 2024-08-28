@@ -24,7 +24,7 @@ class Top10CollectionTableViewCell: UITableViewCell {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 20)
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 150, height: 230)
         layout.minimumLineSpacing = 10

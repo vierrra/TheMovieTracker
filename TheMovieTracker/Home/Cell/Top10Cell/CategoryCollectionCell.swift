@@ -15,12 +15,24 @@ class CategoryCollectionCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.setup()
-        contentView.backgroundColor = .clear
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 12, weight: .medium)
+        //label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textAlignment = .center
+        label.text = "Assista agora"
+        return label
+    }()
     
     private func setup() {
         buildViewHierarchy()
@@ -28,10 +40,11 @@ class CategoryCollectionCell: UICollectionViewCell {
     }
     
     private func buildViewHierarchy() {
-        
+        contentView.addSubview(categoryLabel)
     }
     
     private func configConstraints() {
-        
+        categoryLabel.xAnchor(xAnchor: contentView.centerXAnchor)
+        categoryLabel.yAnchor(yAnchor: contentView.centerYAnchor)
     }
 }

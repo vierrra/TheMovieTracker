@@ -27,7 +27,7 @@ class CategoryCollectionTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: 85, height: 40)
         layout.minimumLineSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .purple
+        collectionView.backgroundColor = .clear
         collectionView.collectionViewLayout = layout
         collectionView.isScrollEnabled = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -58,7 +58,7 @@ extension CategoryCollectionTableViewCell: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as? CategoryCollectionCell
-        cell?.contentView.backgroundColor = .lightGray
+        //cell?.contentView.backgroundColor = .lightGray.withAlphaComponent(0.6)
         return cell ?? UICollectionViewCell()
     }
     

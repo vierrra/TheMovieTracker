@@ -103,7 +103,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell ?? UITableViewCell()
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCollectionTableViewCell.identifier, for: indexPath)
-            cell.contentView.backgroundColor = .orange
+            cell.contentView.backgroundColor = .viewBackground
             return cell
         case 2:
             print("Celula \(indexPath.row)")
