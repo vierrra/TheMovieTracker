@@ -29,8 +29,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        screen?.tableView.delegate = self
-        screen?.tableView.dataSource = self
+        screen?.configProtocols(self, self)
     }
     
 }
@@ -50,21 +49,10 @@ extension FavoritesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as? MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell
         
 //        cell?.delegate = self
         cell?.setupCell(movies: viewModel.loadCurrentMovie(indexPath: indexPath))
         return cell ?? UITableViewCell()
-    }
-    
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        <#code#>
-//    }
-    func UITableViewRowAction() {
-        
-    }
-    
-    
-    
+    }    
 }

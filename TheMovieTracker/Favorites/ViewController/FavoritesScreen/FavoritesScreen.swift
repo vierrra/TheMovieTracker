@@ -8,49 +8,53 @@
 import UIKit
 
 class FavoritesScreen: UIView {
-
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .viewBackground
-        addElements()
-        configConstraints()
+        setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    #warning("Não deu certo, add a VIEW")
+    lazy var nview: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .viewBackground
+        return view
+    }()
     
-
     lazy var tableView:UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
+        tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.identifier)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
-//        tableView.allowsSelection = false
         return tableView
     }()
+ 
+    private func setup() {
+        addElements()
+        configConstraints()
+    }
+    
+    public func configProtocols(_ tableViewDelegate: UITableViewDelegate, _ tableViewDataSource: UITableViewDataSource) {
+        tableView.delegate = tableViewDelegate
+        tableView.dataSource = tableViewDataSource
+    }
     
     // MARK: Todos os elementos da tela, serao chamados aqui, para serem add na view
     func addElements() {
         addSubview(tableView)
-    }
-
-    // MARK: Setando as contraints de cada elemento presente na screen
-    func configConstraints () {
-       
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo:  leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+        addSubview(nview)
     }
     
-    func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
-      tableView.delegate = delegate
-      tableView.dataSource = dataSource
+    func configConstraints () {
+        
+        nview.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: CGSize(width: 0, height: 20))
+        
+        tableView.anchor(top: nview.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }
- 
 }
