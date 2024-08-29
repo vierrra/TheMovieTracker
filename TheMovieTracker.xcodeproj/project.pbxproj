@@ -209,7 +209,6 @@
 				6C5C93DA2C73BBB200DA7960 /* RegisterUser */,
 				6C5C93E22C73C8BD00DA7960 /* MainTabBar */,
 				6C5C93E32C73C8E800DA7960 /* Home */,
-				CCD341392C81043F00B678D0 /* ViewModel */,
 				6C5C93E42C73C8FB00DA7960 /* Search */,
 				6C5C93E52C73C91E00DA7960 /* Favorites */,
 				6C5C93982C73741500DA7960 /* AppDelegate.swift */,
@@ -355,6 +354,7 @@
 				CCD3412B2C8103F200B678D0 /* Cell */,
 				CCD341332C81040B00B678D0 /* Model */,
 				6C5C93E82C73C9F200DA7960 /* ViewController */,
+				CCD341392C81043F00B678D0 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
