@@ -11,10 +11,6 @@
 
 import UIKit
 
-
-#warning("DELETAR IMAGENS EM ASSETS PARA NAO DAR CONFLITO")
-
-
 class FavoritesViewController: UIViewController {
 
     var screen: FavoritesScreen?
@@ -30,8 +26,15 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configProtocols(self, self)
+        customizeNavigation()
     }
     
+    private func customizeNavigation() {
+                title = "Favoritos"
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+                
+                self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        }
 }
 
 extension FavoritesViewController: UITableViewDelegate {
@@ -45,14 +48,12 @@ extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  viewModel.numberOfRowsInSection
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell
         
-//        cell?.delegate = self
-        cell?.setupCell(movies: viewModel.loadCurrentMovie(indexPath: indexPath))
+        cell?.setupCell(movie: viewModel.loadCurrentMovie(indexPath: indexPath))
         return cell ?? UITableViewCell()
     }    
 }

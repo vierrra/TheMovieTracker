@@ -18,7 +18,7 @@ class FavoritesScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    #warning("Não deu certo, add a VIEW")
+   
     lazy var nview: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -47,13 +47,14 @@ class FavoritesScreen: UIView {
     
     // MARK: Todos os elementos da tela, serao chamados aqui, para serem add na view
     func addElements() {
-        addSubview(tableView)
         addSubview(nview)
+        addSubview(tableView)
+    
     }
     
     func configConstraints () {
         
-        nview.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: CGSize(width: 0, height: 20))
+        nview.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: CGSize(width: 0, height: 2))
         
         tableView.anchor(top: nview.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }

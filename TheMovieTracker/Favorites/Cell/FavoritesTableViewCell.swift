@@ -7,14 +7,9 @@
 
 import UIKit
 
-//protocol FavoritesTableViewCellProtocol: AnyObject {
-//    func tappedDeletePerson(movies: Movies?)
-//}
-
 class FavoritesTableViewCell: UITableViewCell {
     
     static var identifier = String(describing: FavoritesTableViewCell.self)
-    var movies: Movies?
     
     lazy var coverImageView: UIImageView = {
         let imageView = UIImageView()
@@ -38,6 +33,7 @@ class FavoritesTableViewCell: UITableViewCell {
     lazy var starImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "star")?.withTintColor(.orange, renderingMode: .alwaysOriginal)
         return imageView
     }()
     
@@ -53,6 +49,7 @@ class FavoritesTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .bottomLeft
+        imageView.image = UIImage(systemName: "movieclapper")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         return imageView
     }()
     
@@ -69,6 +66,7 @@ class FavoritesTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .bottomLeft
+        imageView.image = UIImage(systemName: "calendar")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         return imageView
     }()
     
@@ -85,6 +83,7 @@ class FavoritesTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .bottomLeft
+        imageView.image = UIImage(systemName: "clock")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         return imageView
     }()
     
@@ -125,23 +124,15 @@ class FavoritesTableViewCell: UITableViewCell {
     func configConstrainst() {
         NSLayoutConstraint.activate([
             
-            
             coverImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             coverImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             coverImageView.heightAnchor.constraint(equalToConstant: 170),
             coverImageView.widthAnchor.constraint(equalToConstant: 130),
-            
-            //            coverImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 0), size:  CGSize(width: 170, height: 130))
-            
-            
+  
             titleMovieLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             titleMovieLabel.leadingAnchor.constraint(equalTo: coverImageView.trailingAnchor, constant: 20),
             titleMovieLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            //            titleMovieLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 10, left: 20, bottom: 0, right: -20))
-            //
-            //            starImageView.anchor(top: titleMovieLabel.bottomAnchor, leading: titleMovieLabel.leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 0), size:  CGSize(width: 25, height: 25))
-            
+         
             starImageView.topAnchor.constraint(equalTo: titleMovieLabel.bottomAnchor, constant: 20),
             starImageView.leadingAnchor.constraint(equalTo: titleMovieLabel.leadingAnchor),
             starImageView.heightAnchor.constraint(equalToConstant: 25),
@@ -177,17 +168,12 @@ class FavoritesTableViewCell: UITableViewCell {
         ])
     }
     
-    func setupCell(movies: Movies) {
-        self.movies = movies
-        titleMovieLabel.text  = movies.name
-        coverImageView.image = UIImage(named: movies.cover)
-        starImageView.image = UIImage(systemName: movies.starImage)?.withTintColor(.orange, renderingMode: .alwaysOriginal)
-        ratingLabel.text = movies.rating
-        ticketImageView.image = UIImage(systemName: movies.ticketImage)?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        genderLabel.text = movies.gender
-        calenderImageView.image = UIImage(systemName: movies.calenderImage)?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        releaseDataLabel.text = movies.releaseDate
-        clockImageView.image = UIImage(systemName: movies.clockImage)?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        durationTimeLabel.text = movies.durationTime
+    func setupCell(movie: Movies) {
+        titleMovieLabel.text  = movie.name
+        coverImageView.image = UIImage(named: movie.cover)
+        ratingLabel.text = movie.rating
+        genderLabel.text = movie.gender
+        releaseDataLabel.text = movie.releaseDate
+        durationTimeLabel.text = movie.durationTime
     }
 }
