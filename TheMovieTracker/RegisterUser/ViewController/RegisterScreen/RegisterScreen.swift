@@ -123,7 +123,7 @@ class RegisterScreen: UIView {
     private func configConstraints() {
         backgroundImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         
-        registerLabel.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 300, left: 20, bottom: 0, right: 0))
+        registerLabel.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 250, left: 20, bottom: 0, right: 0))
         
         emailTextField.anchor(top: registerLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 40, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
@@ -131,6 +131,6 @@ class RegisterScreen: UIView {
         
         confirmPasswordTextField.anchor(top: passwordTextField.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
-        registerButton.anchor(leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 125, right: 20), size: CGSize(width: 0, height: 40))
+        registerButton.anchor(leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 80, right: 20), size: CGSize(width: 0, height: 40))
     }
 }

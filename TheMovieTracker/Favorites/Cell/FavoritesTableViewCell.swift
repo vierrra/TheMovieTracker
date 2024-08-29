@@ -168,7 +168,7 @@ class FavoritesTableViewCell: UITableViewCell {
         ])
     }
     
-    func setupCell(movie: Movies) {
+    func setupCell(movie: FavoritesMovies) {
         titleMovieLabel.text  = movie.name
         coverImageView.image = UIImage(named: movie.cover)
         ratingLabel.text = movie.rating

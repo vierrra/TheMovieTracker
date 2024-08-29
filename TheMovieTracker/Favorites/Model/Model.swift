@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Movies {
+struct FavoritesMovies {
     var name: String
     var cover: String
     var rating: String

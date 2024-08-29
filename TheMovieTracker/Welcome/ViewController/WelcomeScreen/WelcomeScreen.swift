@@ -108,8 +108,8 @@ class WelcomeScreen: UIView {
         
         descriptionLabel.anchor(top: welcomeLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 20, left: 50, bottom: 0, right: 50))
         
-        entryButton.anchor(top: descriptionLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 200, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
+        entryButton.anchor(top: descriptionLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 180, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
-        registerButton.anchor(leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 60, right: 20), size: CGSize(width: 0, height: 40))
+        registerButton.anchor(top: entryButton.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 40))
     }
 }
