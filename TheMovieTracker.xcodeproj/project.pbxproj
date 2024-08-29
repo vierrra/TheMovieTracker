@@ -153,15 +153,15 @@
 		6C5C93972C73741500DA7960 /* TheMovieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF54FD2C7A589900406DFA /* Components */,
 				CC5E71072C777CAC004F0BC2 /* BaseViewController */,
-				6C5C93CD2C73788800DA7960 /* Utils */,
+				CCEF54FD2C7A589900406DFA /* Components */,
 				6C5C93C82C73772300DA7960 /* Welcome */,
 				6C5C93D22C73878100DA7960 /* Login */,
 				6C5C93DA2C73BBB200DA7960 /* RegisterUser */,
 				6C5C93E22C73C8BD00DA7960 /* MainTabBar */,
 				6C5C93E32C73C8E800DA7960 /* Home */,
 				CCEF55012C7A5A9700406DFA /* Search */,
+				6C5C93CD2C73788800DA7960 /* Util */,
 				6C5C93E52C73C91E00DA7960 /* Favorites */,
 				6C5C93982C73741500DA7960 /* AppDelegate.swift */,
 				6C5C939A2C73741500DA7960 /* SceneDelegate.swift */,
@@ -214,14 +214,14 @@
 			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
-		6C5C93CD2C73788800DA7960 /* Utils */ = {
+		6C5C93CD2C73788800DA7960 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				6C5C93D02C73824A00DA7960 /* UIColor+Extension.swift */,
 				6C5C93CE2C7378E000DA7960 /* UIViewLayout+Extension.swift */,
 				CC5E710A2C78120E004F0BC2 /* String+Extension.swift */,
 			);
-			path = Utils;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		6C5C93D22C73878100DA7960 /* Login */ = {
@@ -392,17 +392,9 @@
 		CCEF54FD2C7A589900406DFA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF54FE2C7A58B900406DFA /* SearchBar */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		CCEF54FE2C7A58B900406DFA /* SearchBar */ = {
-			isa = PBXGroup;
-			children = (
 				CCEF54FF2C7A58DD00406DFA /* DefaultSearchBar.swift */,
 			);
-			path = SearchBar;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		CCEF55012C7A5A9700406DFA /* Search */ = {
