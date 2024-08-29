@@ -4,12 +4,14 @@ import UIKit
 
 class SearchBarTableViewCell: UITableViewCell {
     
-    public let heigthCell: CGFloat = 120
-    
     static let identifier: String = String(describing: SearchBarTableViewCell.self)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = .viewBackground
+        selectionStyle = .none
+        
         setup()
     }
     
@@ -111,7 +113,7 @@ class SearchBarTableViewCell: UITableViewCell {
         filmReviewLabel.text = "\(movie.review)"
         genreLabel.text = movie.genre
         calendarLabel.text = "\(movie.year)"
-        timeLabel.text = "\(movie.time)"
+        timeLabel.text = "\(movie.time) minutos"
     }
     
     private func setup() {
@@ -133,7 +135,7 @@ class SearchBarTableViewCell: UITableViewCell {
     }
     
     private func configConstraints() {
-        bannerImageView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 0), size: CGSize(width: 95, height: 0))
+        bannerImageView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 0), size: CGSize(width: 95, height: 120))
         
         titleLabel.anchor(top: contentView.topAnchor, leading: bannerImageView.trailingAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 10, bottom: 0, right: 0))
         

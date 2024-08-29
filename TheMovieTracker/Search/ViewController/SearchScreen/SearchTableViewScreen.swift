@@ -1,13 +1,12 @@
 //
-//  SearchBarWithTableViewScreen.swift
-//  SearchBarWithTableView
+//  SearchTableViewScreen.swift
 //
 //  Created by Renato Vieira on 23/08/24.
 //
 
 import UIKit
 
-class SearchBarWithTableViewScreen: UIView {
+class SearchTableViewScreen: UIView {
     
     init() {
         super.init(frame: .zero)

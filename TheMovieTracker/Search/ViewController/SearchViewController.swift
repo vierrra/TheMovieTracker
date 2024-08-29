@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    private var screen: SearchBarWithTableViewScreen?
+    private var screen: SearchTableViewScreen?
     private var listMovies: [AllMovies] = [AllMovies(image: "cobra", title: "Cobra", review: 9.3, genre: "Ação", year: 1980, time: 140),
                                            AllMovies(image: "divertidamente", title: "Divertidamente", review: 9.5, genre: "Anime", year: 2024, time: 140),
                                            AllMovies(image: "incrivel_hulk", title: "Incrível Hulk", review: 9.5, genre: "Anime", year: 2024, time: 140),
@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
     private var filteredMovies = [AllMovies]()
     
     override func loadView() {
-        screen = SearchBarWithTableViewScreen()
+        screen = SearchTableViewScreen()
         view = screen
         
         screen?.configProtocols(self, self, self)
@@ -35,12 +35,11 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredMovies = listMovies
-        configFilteredDataSearchBar()
         customizeNavigation()
     }
     
     private func customizeNavigation() {
-            title = "Busca"
+            title = "Busque pelo filme"
             let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
             
             self.navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -89,7 +88,6 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredMovies.isEmpty ? 1 : filteredMovies.count
     }
@@ -99,7 +97,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.identifier, for: indexPath) as? EmptyStateTableViewCell else {
                 return UITableViewCell()
             }
-            cell.contentView.backgroundColor = .viewBackground
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarTableViewCell.identifier, for: indexPath) as? SearchBarTableViewCell else {
@@ -107,13 +104,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.titleLabel.text = filteredMovies[indexPath.row].title
-            cell.contentView.backgroundColor = .viewBackground
             cell.setupCell(filteredMovies[indexPath.row])
             return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
     }
 }
