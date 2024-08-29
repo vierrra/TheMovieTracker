@@ -21,8 +21,4 @@ class Top10CollectionTableViewModel {
     func loadCurrentItem(indexPath: IndexPath) -> DetailMovies {
         return movie?.list[indexPath.row] ?? DetailMovies(titleMovie: "", bannerMovie: "")
     }
-
-//    func getTitle(indexPath: IndexPath) -> String {
-//      return loadCurrentItem(indexPath: indexPath).text
-//    }
 }

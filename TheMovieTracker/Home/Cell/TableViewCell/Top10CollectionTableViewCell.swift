@@ -15,6 +15,7 @@ class Top10CollectionTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .viewBackground
         setup()
     }
     
@@ -69,8 +70,4 @@ extension Top10CollectionTableViewCell: UICollectionViewDelegate, UICollectionVi
         return cell ?? UICollectionViewCell()
         
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            return CGSize(width: 2500, height: 200) // Defina o tamanho da célula
-//        }
 }

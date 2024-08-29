@@ -20,9 +20,6 @@ class BaseViewController: UIViewController {
         tap.cancelsTouchesInView = false
         tap.numberOfTapsRequired = 1
         view.addGestureRecognizer(tap)
-        
-        // Alguns elementos necessitam da implementação (label, ImageView, entre outros...)
-        //    nomeElemento.isUserInteractionEnabled = true
     }
     
     @objc func tappedGesture() {

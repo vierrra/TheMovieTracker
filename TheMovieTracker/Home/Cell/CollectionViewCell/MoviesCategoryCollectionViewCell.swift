@@ -32,6 +32,10 @@ class MoviesCategoryCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
+//    public func setupCell(_ indexPath: Int, _ detailMovie: [DetailMovies]) {
+//        bannerMovie.image = UIImage(named: detailMovie[indexPath].bannerMovie)
+//    }
+    
     private func setup() {
         buildViewHierarchy()
         configConstraints()

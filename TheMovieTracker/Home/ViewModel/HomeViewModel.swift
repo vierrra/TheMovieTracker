@@ -72,7 +72,7 @@ class HomeViewModel {
         return listTop10Movies[indexPath.row]
     }
     
-    func loadCurrentList() -> [Movies] {
+    func loadCurrentListCategory() -> [Movies] {
         return listCategoryMovie
     }
 }

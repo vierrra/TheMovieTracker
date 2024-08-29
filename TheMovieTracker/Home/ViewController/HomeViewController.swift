@@ -12,9 +12,6 @@ class HomeViewController: UIViewController {
     private var screen: HomeScreen?
     private var viewModel: HomeViewModel = HomeViewModel()
     
-    //Adaptar depois quando for usar o search
-    //private var filteredData = [String]()
-    
     override func loadView() {
         screen = HomeScreen()
         view = screen
@@ -26,7 +23,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         customizeNavigation()
-        //filteredData = data
     }
     
     private func customizeNavigation() {
@@ -44,30 +40,12 @@ class HomeViewController: UIViewController {
     @objc func tappedUserProfile() {
         
     }
-    //Descomentar depois para usar o search
-//    private func configFilteredDataSearchBar() {
-//        screen?.searchBar.onTextDidChange = { [weak self] searchText in
-//            guard let self = self else { return }
-//            if searchText.isEmpty {
-//                self.filteredData = self.data
-//            } else {
-//                self.filteredData = self.data.filter { $0.lowercased().contains(searchText.lowercased()) }
-//            }
-//            
-//            screen?.tableView.reloadData()
-//        }
-//        
-//        screen?.searchBar.onCancelButtonClicked = { [weak self] in
-//            self?.filteredData = self?.data ?? []
-//            self?.screen?.tableView.reloadData()
-//        }
-//    }
 }
 
 extension HomeViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //configFilteredDataSearchBar()
+        
         screen?.searchBar.onTextDidChange?(searchText)
     }
     
@@ -87,7 +65,7 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return filteredData.count
+        
         return viewModel.numberOfRowsInSection
     }
     
@@ -96,18 +74,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10CollectionTableViewCell.identifier, for: indexPath) as? Top10CollectionTableViewCell
-            //cell?.contentView.backgroundColor = .orange
-            cell?.contentView.backgroundColor = .viewBackground
             cell?.setupCell(indexPath.row, viewModel.loadCurrentDetail(indexPath: indexPath))
             
             return cell ?? UITableViewCell()
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCollectionTableViewCell.identifier, for: indexPath) as? CategoryCollectionTableViewCell
-            cell?.contentView.backgroundColor = .viewBackground
-            cell?.setupCell(viewModel.loadCurrentList())
+            cell?.setupCell(viewModel.loadCurrentListCategory())
             return cell ?? UITableViewCell()
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: MoviesCategoryCollectionTableViewCell.identifier, for: indexPath) as? MoviesCategoryCollectionTableViewCell
+            cell?.setupCell(viewModel.loadCurrentListCategory())
             print("Celula \(indexPath.row)")
             return cell ?? UITableViewCell()
         default:

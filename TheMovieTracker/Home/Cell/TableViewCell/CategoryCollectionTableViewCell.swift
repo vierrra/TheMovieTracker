@@ -14,6 +14,7 @@ class CategoryCollectionTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .viewBackground
         setup()
     }
     
@@ -64,12 +65,7 @@ extension CategoryCollectionTableViewCell: UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as? CategoryCollectionCell
         cell?.setupCell(movieCategory: viewModel.loadCurrentItem(indexPath: indexPath))
-        //cell?.contentView.backgroundColor = .lightGray.withAlphaComponent(0.6)
         return cell ?? UICollectionViewCell()
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            return CGSize(width: 2500, height: 200) // Defina o tamanho da célula
-//        }
 }
 

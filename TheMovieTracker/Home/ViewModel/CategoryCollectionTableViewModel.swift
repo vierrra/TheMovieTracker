@@ -22,8 +22,4 @@ class CategoryCollectionTableViewModel {
     func loadCurrentItem(indexPath: IndexPath) -> Movies {
         return movies?[indexPath.row] ?? Movies(category: "", isSelected: false, list: [])
     }
-
-//    func getTitle(indexPath: IndexPath) -> String {
-//      return loadCurrentItem(indexPath: indexPath).text
-//    }
 }

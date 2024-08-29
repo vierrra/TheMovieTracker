@@ -11,7 +11,7 @@ class MoviesCategoryCollectionTableViewCell: UITableViewCell {
 
     static let identifier: String = String(describing: MoviesCategoryCollectionTableViewCell.self)
 
-   // private var viewModel: Top10CollectionTableViewModel = Top10CollectionTableViewModel()
+    private var viewModel: MoviesCategoryCollectionTableViewModel = MoviesCategoryCollectionTableViewModel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,8 +40,8 @@ class MoviesCategoryCollectionTableViewCell: UITableViewCell {
         return collectionView
     }()
     
-    public func setupCell(_ indexPath: Int? = nil , _ movies: Movies) {
-        //viewModel.setMovie(movie: movies)
+    public func setupCell(_ movies: [Movies]) {
+        viewModel.setMovie(movies: movies)
     }
     
     private func setup() {
@@ -60,7 +60,7 @@ class MoviesCategoryCollectionTableViewCell: UITableViewCell {
 
 extension MoviesCategoryCollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numberOfItemsInSection(section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,12 +68,9 @@ extension MoviesCategoryCollectionTableViewCell: UICollectionViewDelegate, UICol
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCategoryCollectionViewCell.identifier, for: indexPath) as? MoviesCategoryCollectionViewCell
         
-        return cell ?? UICollectionViewCell()
-        //        cell?.setupCell(indexPath.row + 1, viewModel.loadCurrentItem(indexPath: indexPath))
+        //cell?.setupCell(indexPath.row, viewModel.loadCurrentItem(indexPath: indexPath))
         
+        return cell ?? UICollectionViewCell()
     }
 }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            return CGSize(width: 2500, height: 200) // Defina o tamanho da célula
-//        }}
+
