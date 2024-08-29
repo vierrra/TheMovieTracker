@@ -11,6 +11,8 @@
 		4429B7E22C7CD2BF000CC719 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429B7E12C7CD2BF000CC719 /* FavoritesTableViewCell.swift */; };
 		4429B7E42C7CD2E0000CC719 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429B7E32C7CD2E0000CC719 /* Model.swift */; };
 		4429B7E62C7CD369000CC719 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429B7E52C7CD369000CC719 /* FavoritesViewModel.swift */; };
+		445D09B22C80FDDA00C9C003 /* RecoveryPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D09B12C80FDDA00C9C003 /* RecoveryPasswordViewController.swift */; };
+		445D09B42C80FDED00C9C003 /* RecoveryPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D09B32C80FDED00C9C003 /* RecoveryPasswordScreen.swift */; };
 		6C5C93992C73741500DA7960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C93982C73741500DA7960 /* AppDelegate.swift */; };
 		6C5C939B2C73741500DA7960 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C939A2C73741500DA7960 /* SceneDelegate.swift */; };
 		6C5C939D2C73741500DA7960 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C939C2C73741500DA7960 /* WelcomeViewController.swift */; };
@@ -62,6 +64,8 @@
 		4429B7E12C7CD2BF000CC719 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		4429B7E32C7CD2E0000CC719 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4429B7E52C7CD369000CC719 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		445D09B12C80FDDA00C9C003 /* RecoveryPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordViewController.swift; sourceTree = "<group>"; };
+		445D09B32C80FDED00C9C003 /* RecoveryPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordScreen.swift; sourceTree = "<group>"; };
 		6C5C93952C73741500DA7960 /* TheMovieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5C93982C73741500DA7960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C5C939A2C73741500DA7960 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,47 @@
 			path = FavoritesScreen;
 			sourceTree = "<group>";
 		};
+		445D09AC2C80FD4300C9C003 /* RecoveryPassword */ = {
+			isa = PBXGroup;
+			children = (
+				445D09AD2C80FD6C00C9C003 /* Model */,
+				445D09AE2C80FD7500C9C003 /* ViewController */,
+				445D09AF2C80FD8000C9C003 /* ViewModel */,
+			);
+			path = RecoveryPassword;
+			sourceTree = "<group>";
+		};
+		445D09AD2C80FD6C00C9C003 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		445D09AE2C80FD7500C9C003 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				445D09B12C80FDDA00C9C003 /* RecoveryPasswordViewController.swift */,
+				445D09B02C80FDA400C9C003 /* RecoveryPassword */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		445D09AF2C80FD8000C9C003 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		445D09B02C80FDA400C9C003 /* RecoveryPassword */ = {
+			isa = PBXGroup;
+			children = (
+				445D09B32C80FDED00C9C003 /* RecoveryPasswordScreen.swift */,
+			);
+			path = RecoveryPassword;
+			sourceTree = "<group>";
+		};
 		6C5C938C2C73741500DA7960 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +220,7 @@
 		6C5C93972C73741500DA7960 /* TheMovieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				445D09AC2C80FD4300C9C003 /* RecoveryPassword */,
 				CC5E71072C777CAC004F0BC2 /* BaseViewController */,
 				CCE132C42C7EB2A4001C019E /* Components */,
 				6C5C93CD2C73788800DA7960 /* Util */,
@@ -570,7 +616,9 @@
 				6C5C93F22C73CAF700DA7960 /* FavoritesViewController.swift in Sources */,
 				CCE132BC2C7EB1C3001C019E /* SearchTableViewScreen.swift in Sources */,
 				CCE132C52C7EB2A4001C019E /* DefaultSearchBar.swift in Sources */,
+				445D09B22C80FDDA00C9C003 /* RecoveryPasswordViewController.swift in Sources */,
 				CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */,
+				445D09B42C80FDED00C9C003 /* RecoveryPasswordScreen.swift in Sources */,
 				6C5C93D52C7387C300DA7960 /* LoginViewController.swift in Sources */,
 				6C5C93EA2C73CA3900DA7960 /* MainTabBarViewController.swift in Sources */,
 				6C5C939D2C73741500DA7960 /* WelcomeViewController.swift in Sources */,

@@ -19,9 +19,9 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        #warning("Descomentar")
         self.configProtocols()
-        self.isEnabledLoginButton(isEnable: false)
+//        self.isEnabledLoginButton(isEnable: false)
     }
     
     private func configProtocols() {
