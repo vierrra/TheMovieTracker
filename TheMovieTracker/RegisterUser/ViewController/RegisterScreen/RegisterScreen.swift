@@ -1,6 +1,6 @@
 //
 //  RegisterScreen.swift
-//  PrimeiroAppMVVM
+//  TheMovieTracker
 //
 //  Created by Renato Vieira on 18/08/24.
 //

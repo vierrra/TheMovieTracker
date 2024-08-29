@@ -5,10 +5,6 @@
 //  Created by Renato Vieira on 18/08/24.
 //
 
-
-// MARK: DELETAR VIEWBACKGROUND EM UICOLOREXTENSION
-
-
 import UIKit
 
 class FavoritesViewController: UIViewController {
