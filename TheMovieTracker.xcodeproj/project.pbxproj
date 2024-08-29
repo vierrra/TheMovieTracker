@@ -381,6 +381,14 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		CCD3411F2C80FF8000B678D0 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				CCEF54FF2C7A58DD00406DFA /* DefaultSearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		CCEF54FA2C7A581D00406DFA /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +400,7 @@
 		CCEF54FD2C7A589900406DFA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF54FF2C7A58DD00406DFA /* DefaultSearchBar.swift */,
+				CCD3411F2C80FF8000B678D0 /* SearchBar */,
 			);
 			path = Components;
 			sourceTree = "<group>";
