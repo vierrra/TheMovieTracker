@@ -65,7 +65,7 @@ class HomeViewModel {
                 ]
     
     var numberOfRowsInSection: Int {
-        return 2
+        return 3
     }
     
     func loadCurrentDetail(indexPath: IndexPath) -> Movies {

@@ -31,6 +31,7 @@ class HomeScreen: UIView {
         tableView.allowsSelection = false
         tableView.register(Top10CollectionTableViewCell.self, forCellReuseIdentifier: Top10CollectionTableViewCell.identifier)
         tableView.register(CategoryCollectionTableViewCell.self, forCellReuseIdentifier: CategoryCollectionTableViewCell.identifier)
+        tableView.register(MoviesCategoryCollectionTableViewCell.self, forCellReuseIdentifier: MoviesCategoryCollectionTableViewCell.identifier)
         return tableView
     }()
     

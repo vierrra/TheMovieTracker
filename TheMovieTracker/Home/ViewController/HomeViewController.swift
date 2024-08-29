@@ -104,13 +104,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCollectionTableViewCell.identifier, for: indexPath) as? CategoryCollectionTableViewCell
             cell?.contentView.backgroundColor = .viewBackground
-//            if viewModel.loadCurrentDetail(indexPath: indexPath).category != "Top10" {
             cell?.setupCell(viewModel.loadCurrentList())
-            //}
             return cell ?? UITableViewCell()
         case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: MoviesCategoryCollectionTableViewCell.identifier, for: indexPath) as? MoviesCategoryCollectionTableViewCell
             print("Celula \(indexPath.row)")
-            return UITableViewCell()
+            return cell ?? UITableViewCell()
         default:
             return UITableViewCell()
         }
