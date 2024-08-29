@@ -9,6 +9,7 @@ import Foundation
 
 struct Movies {
     var category: String
+    var isSelected: Bool = false
     var list: [DetailMovies]
 }
 

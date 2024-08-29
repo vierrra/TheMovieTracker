@@ -10,6 +10,7 @@ import UIKit
 class CategoryCollectionTableViewCell: UITableViewCell {
     
     static let identifier: String = String(describing: CategoryCollectionTableViewCell.self)
+    private var viewModel: CategoryCollectionTableViewModel = CategoryCollectionTableViewModel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,20 +23,24 @@ class CategoryCollectionTableViewCell: UITableViewCell {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 20)
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 85, height: 40)
         layout.minimumLineSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.collectionViewLayout = layout
-        collectionView.isScrollEnabled = false
+        collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: CategoryCollectionCell.identifier)
         return collectionView
     }()
+    
+    public func setupCell(_ movies: [Movies]) {
+        viewModel.setMovie(movies: movies)
+    }
     
     private func setup() {
         buildViewHierarchy()
@@ -47,17 +52,18 @@ class CategoryCollectionTableViewCell: UITableViewCell {
     }
     
     private func configConstraints() {
-        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: CGSize(width: 0, height: CategoryCollectionCell.height))
     }
 }
 
 extension CategoryCollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return viewModel.numberOfItemsInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as? CategoryCollectionCell
+        cell?.setupCell(movieCategory: viewModel.loadCurrentItem(indexPath: indexPath))
         //cell?.contentView.backgroundColor = .lightGray.withAlphaComponent(0.6)
         return cell ?? UICollectionViewCell()
     }

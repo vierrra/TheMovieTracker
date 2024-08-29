@@ -102,9 +102,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell ?? UITableViewCell()
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCollectionTableViewCell.identifier, for: indexPath)
-            cell.contentView.backgroundColor = .viewBackground
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCollectionTableViewCell.identifier, for: indexPath) as? CategoryCollectionTableViewCell
+            cell?.contentView.backgroundColor = .viewBackground
+//            if viewModel.loadCurrentDetail(indexPath: indexPath).category != "Top10" {
+            cell?.setupCell(viewModel.loadCurrentList())
+            //}
+            return cell ?? UITableViewCell()
         case 2:
             print("Celula \(indexPath.row)")
             return UITableViewCell()
@@ -119,7 +122,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 1 {
-            return 25
+            return 40
         }
         
         return 300
