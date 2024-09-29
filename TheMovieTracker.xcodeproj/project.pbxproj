@@ -207,7 +207,7 @@
 			children = (
 				CC5E71072C777CAC004F0BC2 /* BaseViewController */,
 				CCE132C42C7EB2A4001C019E /* Components */,
-				6C5C93CD2C73788800DA7960 /* Util */,
+				6C5C93CD2C73788800DA7960 /* Utils */,
 				6C5C93C82C73772300DA7960 /* Welcome */,
 				6C5C93D22C73878100DA7960 /* Login */,
 				6C5C93DA2C73BBB200DA7960 /* RegisterUser */,
@@ -267,14 +267,14 @@
 			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
-		6C5C93CD2C73788800DA7960 /* Util */ = {
+		6C5C93CD2C73788800DA7960 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				CCD3413E2C810AA900B678D0 /* String+Extension.swift */,
 				6C5C93D02C73824A00DA7960 /* UIColorExtension.swift */,
 				6C5C93CE2C7378E000DA7960 /* UIViewLayoutExtension.swift */,
 			);
-			path = Util;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		6C5C93D22C73878100DA7960 /* Login */ = {

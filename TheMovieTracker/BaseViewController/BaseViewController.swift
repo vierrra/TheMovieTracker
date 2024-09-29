@@ -43,7 +43,7 @@ class BaseViewController: UIViewController {
         
         alertController.setValue(attributedStringTitle, forKey: "attributedTitle")
         alertController.setValue(attributedStringMessage, forKey: "attributedMessage")
-        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.backGrounTextField
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.backGroundTextField
         
         let okButton = UIAlertAction(title: titleButton, style: .default) { _ in
             completion()

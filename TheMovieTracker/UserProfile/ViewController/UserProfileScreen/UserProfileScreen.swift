@@ -29,6 +29,7 @@ class UserProfileScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image =  UIImage(named: "BackGround")
+        image.contentMode = .scaleAspectFill
         return image
     }()
 
@@ -37,7 +38,7 @@ class UserProfileScreen: UIView {
         label.text = "Olá, Darth Vader"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     
@@ -45,96 +46,95 @@ class UserProfileScreen: UIView {
         let label = UILabel()
         label.text = "Suas informações pessoais"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = .informationProfileLabel
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     
-    lazy var viewInfo: UIView = {
+    lazy var infoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .viewBackground
+        view.backgroundColor = .informationProfileBackgroundView
         view.clipsToBounds = true
         view.layer.cornerRadius = 12
         return view
     }()
     
-    lazy var name: UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Nome"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
-    lazy var nameUser: UILabel = {
+    lazy var userNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Darth Vader"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
-    lazy var email: UILabel = {
+    lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
-    lazy var emailUser: UILabel = {
+    lazy var emailUserLabel: UILabel = {
         let label = UILabel()
         label.text = "darthvader@guerranasestrelas.com"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
-    lazy var stringPass: UILabel = {
+    lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "Senha"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = .informationProfileLabel
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     
-    lazy var viewPassword: UIView = {
+    lazy var passwordView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .viewBackground
+        view.backgroundColor = .informationProfileBackgroundView
         view.clipsToBounds = true
         view.layer.cornerRadius = 12
         return view
     }()
     
     
-    lazy var newPass: UILabel = {
+    lazy var newPasswordLabel: UILabel = {
         let label = UILabel()
         label.text = "Nova senha"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.attributedPlaceholder = NSAttributedString(string: "Digite a sua senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
         textField.textColor = .white
         textField.layer.borderColor = UIColor.white.cgColor
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
-//        textField.backgroundColor = .backGroundTextField
-        textField.keyboardType = .numberPad
+        textField.backgroundColor = .backGroundTextField
+        textField.keyboardType = .default
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -190,17 +190,17 @@ class UserProfileScreen: UIView {
         addSubview(backgroundImageView)
         addSubview(welcomeLabel)
         addSubview(infoLabel)
-        addSubview(viewInfo)
-        addSubview(name)
-        addSubview(nameUser)
-        addSubview(email)
-        addSubview(emailUser)
-        addSubview(stringPass)
-        addSubview(viewPassword)
-        addSubview(newPass)
+        addSubview(infoView)
+        infoView.addSubview(nameLabel)
+        infoView.addSubview(userNameLabel)
+        infoView.addSubview(emailLabel)
+        infoView.addSubview(emailUserLabel)
+        addSubview(passwordLabel)
+        addSubview(passwordView)
+        passwordView.addSubview(newPasswordLabel)
         addSubview(passwordTextField)
-        addSubview(saveButton)
-        addSubview(logoutButton)
+//        addSubview(saveButton)
+//        addSubview(logoutButton)
     }
     
    private func configConstraints() {
@@ -211,70 +211,71 @@ class UserProfileScreen: UIView {
             backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            welcomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
+            welcomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 140),
             welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             welcomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             welcomeLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            infoLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 5),
+            infoLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
             infoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             infoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             infoLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            viewInfo.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 5),
-            viewInfo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            viewInfo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            viewInfo.heightAnchor.constraint(equalToConstant: 160),
+            infoView.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 5),
+            infoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            infoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            infoView.heightAnchor.constraint(equalToConstant: 140),
             
-            name.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 30),
-            name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            name.heightAnchor.constraint(equalToConstant: 20),
+            nameLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            nameUser.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 5),
-            nameUser.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            nameUser.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            nameUser.heightAnchor.constraint(equalToConstant: 20),
-            
-            email.topAnchor.constraint(equalTo: nameUser.bottomAnchor, constant: 30),
-            email.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            email.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            email.heightAnchor.constraint(equalToConstant: 20),
-            
-            emailUser.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 5),
-            emailUser.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            emailUser.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            emailUser.heightAnchor.constraint(equalToConstant: 20),
-            
-            stringPass.topAnchor.constraint(equalTo: viewInfo.bottomAnchor, constant: 20),
-            stringPass.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            stringPass.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            stringPass.heightAnchor.constraint(equalToConstant: 20),
-            
-            viewPassword.topAnchor.constraint(equalTo: stringPass.bottomAnchor, constant: 5),
-            viewPassword.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            viewPassword.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            viewPassword.heightAnchor.constraint(equalToConstant: 120),
-            
-            newPass.topAnchor.constraint(equalTo: stringPass.bottomAnchor, constant: 20),
-            newPass.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            newPass.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            newPass.heightAnchor.constraint(equalToConstant: 20),
+            userNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
+            userNameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10),
+            userNameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10),
+            userNameLabel.heightAnchor.constraint(equalToConstant: 20),
 
-            passwordTextField.topAnchor.constraint(equalTo: newPass.bottomAnchor, constant: 20),
-            passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-                  
-            saveButton.topAnchor.constraint(equalTo: viewPassword.bottomAnchor, constant: 30),
-            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            saveButton.heightAnchor.constraint(equalToConstant: 40),
-            
-            logoutButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
-            logoutButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            logoutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            logoutButton.heightAnchor.constraint(equalToConstant: 40),
+            emailLabel.topAnchor.constraint(equalTo: userNameLabel
+                .bottomAnchor, constant: 30),
+            emailLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10),
+            emailLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10),
+            emailLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            emailUserLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 5),
+            emailUserLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10),
+            emailUserLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10),
+            emailUserLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            passwordLabel.topAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 20),
+            passwordLabel.leadingAnchor.constraint(equalTo: infoLabel.leadingAnchor),
+            passwordLabel.trailingAnchor.constraint(equalTo: infoLabel.trailingAnchor),
+            passwordLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            passwordView.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5),
+            passwordView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            passwordView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            passwordView.heightAnchor.constraint(equalToConstant: 120),
+
+            newPasswordLabel.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 10),
+            newPasswordLabel.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
+            newPasswordLabel.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
+            newPasswordLabel.heightAnchor.constraint(equalToConstant: 20),
+
+//            passwordTextField.topAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: 10),
+//            passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+//            passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
+//                  
+//            saveButton.topAnchor.constraint(equalTo: viewPassword.bottomAnchor, constant: 30),
+//            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+//            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+//            saveButton.heightAnchor.constraint(equalToConstant: 40),
+//            
+//            logoutButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
+//            logoutButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+//            logoutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+//            logoutButton.heightAnchor.constraint(equalToConstant: 40),
             
         ])
     }
