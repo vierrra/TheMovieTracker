@@ -126,6 +126,7 @@ class UserProfileScreen: UIView {
     
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .roundedRect
         textField.attributedPlaceholder = NSAttributedString(string: "Digite a sua senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
         textField.textColor = .white
@@ -198,7 +199,7 @@ class UserProfileScreen: UIView {
         addSubview(passwordLabel)
         addSubview(passwordView)
         passwordView.addSubview(newPasswordLabel)
-        addSubview(passwordTextField)
+        passwordView.addSubview(passwordTextField)
 //        addSubview(saveButton)
 //        addSubview(logoutButton)
     }
@@ -255,17 +256,17 @@ class UserProfileScreen: UIView {
             passwordView.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5),
             passwordView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             passwordView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            passwordView.heightAnchor.constraint(equalToConstant: 120),
+            passwordView.heightAnchor.constraint(equalToConstant: 110),
 
             newPasswordLabel.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 10),
             newPasswordLabel.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
             newPasswordLabel.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
             newPasswordLabel.heightAnchor.constraint(equalToConstant: 20),
 
-//            passwordTextField.topAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: 10),
-//            passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-//            passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-//            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
+            passwordTextField.topAnchor.constraint(equalTo: newPasswordLabel.bottomAnchor, constant: 20),
+            passwordTextField.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
+            passwordTextField.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
 //                  
 //            saveButton.topAnchor.constraint(equalTo: viewPassword.bottomAnchor, constant: 30),
 //            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
