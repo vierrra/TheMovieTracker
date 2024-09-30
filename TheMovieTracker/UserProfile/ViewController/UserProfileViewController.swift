@@ -25,19 +25,32 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     private func configProtocols() {
         screen?.delegates(self, self)
     }
+    
     private func customizeNavigation() {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    private func routeToLoginScreen() {
+        let vc = WelcomeViewController()
+        
+        if let windowsScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let window = windowsScene.windows.first {
+            let nav = UINavigationController(rootViewController: vc)
+            
+            window.rootViewController = nav
+            UIView.transition(with: window, duration: 0.3, options: .curveEaseIn, animations: nil)
+        }
     }
 }
 
 extension ProfileViewController: ProfileScreenProtocol {
     func tappedSaveInfo() {
-        let vc = HomeViewController()
-        navigationController?.pushViewController(vc, animated: false)
+        //Aqui deverá chamar a viewmodel para redefinir a senha!
+        //Assim que der sucesso na validação apresentar um alert informando
+        //Se der sucesso ao clicar no alert deverá efetuar logoff
     }
     
-    func tappedlogoutAccount() {
-        let vc = WelcomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    func tappedLogoutAccount() {
+        routeToLoginScreen()
     }
 }

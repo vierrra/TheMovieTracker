@@ -9,7 +9,7 @@ import UIKit
 
 protocol ProfileScreenProtocol: AnyObject {
     func tappedSaveInfo()
-    func tappedlogoutAccount()
+    func tappedLogoutAccount()
 }
 
 class UserProfileScreen: UIView {
@@ -155,10 +155,9 @@ class UserProfileScreen: UIView {
     }()
     
     @objc func tappedSaveInfo() {
-        print(#function)
         self.delegate?.tappedSaveInfo()
     }
-//
+
     lazy var logoutButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
@@ -168,13 +167,12 @@ class UserProfileScreen: UIView {
         button.setTitleColor(UIColor.white, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(tappedlogoutAccount), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tappedLogoutAccount), for: .touchUpInside)
         return button
     }()
     
-    @objc func tappedlogoutAccount() {
-        print(#function)
-        self.delegate?.tappedlogoutAccount()
+    @objc func tappedLogoutAccount() {
+        self.delegate?.tappedLogoutAccount()
     }
     
     public func delegates(_ delegate: ProfileScreenProtocol, _ delegateTextFields: UITextFieldDelegate) {
@@ -200,8 +198,8 @@ class UserProfileScreen: UIView {
         addSubview(passwordView)
         passwordView.addSubview(newPasswordLabel)
         passwordView.addSubview(passwordTextField)
-//        addSubview(saveButton)
-//        addSubview(logoutButton)
+        addSubview(saveButton)
+        addSubview(logoutButton)
     }
     
    private func configConstraints() {
@@ -267,17 +265,16 @@ class UserProfileScreen: UIView {
             passwordTextField.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
             passwordTextField.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-//                  
-//            saveButton.topAnchor.constraint(equalTo: viewPassword.bottomAnchor, constant: 30),
-//            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-//            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-//            saveButton.heightAnchor.constraint(equalToConstant: 40),
-//            
-//            logoutButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
-//            logoutButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-//            logoutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-//            logoutButton.heightAnchor.constraint(equalToConstant: 40),
+                  
+            saveButton.topAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: 20),
+            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            saveButton.heightAnchor.constraint(equalToConstant: 40),
             
+            logoutButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
+            logoutButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            logoutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            logoutButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
 }

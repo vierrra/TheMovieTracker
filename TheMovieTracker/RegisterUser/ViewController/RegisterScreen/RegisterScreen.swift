@@ -27,6 +27,7 @@ class RegisterScreen: UIView {
     
     lazy var backgroundImageView: UIImageView = {
         let image = UIImageView()
+        image.contentMode = .scaleAspectFill
         image.image =  UIImage(named: "BackGround")
         return image
     }()
