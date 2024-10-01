@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension String {
     
     var isValidEmail: Bool {
@@ -20,6 +19,14 @@ extension String {
         let passwordPattern = ".{6,}"
         let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordPattern)
         return passwordPred.evaluate(with: self)
+    }
+    
+    public func testValidateEqualsPassword(_ password: String, _ confirmPasswordTextField: String ) -> Bool {
+        if password == confirmPasswordTextField {
+            return true
+        } else {
+            return false
+        }
     }
     
 }

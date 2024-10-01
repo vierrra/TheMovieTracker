@@ -72,7 +72,7 @@ class RegisterScreen: UIView {
     lazy var confirmPasswordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.attributedPlaceholder = NSAttributedString(string: "Confime a senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
+        textField.attributedPlaceholder = NSAttributedString(string: "Confirme a senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
         textField.textColor = .white
         textField.layer.borderColor = UIColor.white.cgColor
         textField.clipsToBounds = true

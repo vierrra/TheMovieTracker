@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tappedUserProfile() {
-        let vc = ProfileViewController()
+        let vc = UserProfileViewController()
         
         present(vc, animated: true)
     }

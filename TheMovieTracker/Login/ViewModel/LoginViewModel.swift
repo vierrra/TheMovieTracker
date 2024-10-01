@@ -21,7 +21,7 @@ class LoginViewModel {
         return passwordPred.evaluate(with: password)
     }
     
-    public func validationsFiledsTextFields(_ email: String, _ password: String) -> Bool {
+    public func validationsFieldsTextFields(_ email: String, _ password: String) -> Bool {
         if isValidEmail(email) && isValidPassword(password) {
             return true
         } else {
