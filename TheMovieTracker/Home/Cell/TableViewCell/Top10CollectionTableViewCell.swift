@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol Top10CollectionTableViewCellProtocol: AnyObject {
+    func didSelectItem(at indexPath: IndexPath)
+}
+
 class Top10CollectionTableViewCell: UITableViewCell {
     
     static let identifier: String = String(describing: Top10CollectionTableViewCell.self)
 
     private var viewModel: Top10CollectionTableViewModel = Top10CollectionTableViewModel()
+    private weak var delegate: Top10CollectionTableViewCellProtocol?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -39,6 +44,10 @@ class Top10CollectionTableViewCell: UITableViewCell {
         collectionView.register(Top10CollectionViewCell.self, forCellWithReuseIdentifier: Top10CollectionViewCell.identifier)
         return collectionView
     }()
+    
+    public func delegate(delegate: Top10CollectionTableViewCellProtocol) {
+        self.delegate = delegate
+    }
     
     public func setupCell(_ indexPath: Int? = nil , _ movies: Movies) {
         viewModel.setMovie(movie: movies)
@@ -69,5 +78,9 @@ extension Top10CollectionTableViewCell: UICollectionViewDelegate, UICollectionVi
         cell?.setupCell(indexPath.row + 1, viewModel.loadCurrentItem(indexPath: indexPath))
         return cell ?? UICollectionViewCell()
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItem(at: indexPath)
     }
 }

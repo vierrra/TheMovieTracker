@@ -76,6 +76,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10CollectionTableViewCell.identifier, for: indexPath) as? Top10CollectionTableViewCell
+            cell?.delegate(delegate: self)
             cell?.setupCell(indexPath.row, viewModel.loadCurrentDetail(indexPath: indexPath))
             
             return cell ?? UITableViewCell()
@@ -103,6 +104,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return 300
+    }
+}
+
+extension HomeViewController: Top10CollectionTableViewCellProtocol {
+    func didSelectItem(at indexPath: IndexPath) {
+        let vc = DetailViewController()
+        present(vc, animated: true)
     }
 }
 
