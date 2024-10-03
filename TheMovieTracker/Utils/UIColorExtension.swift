@@ -41,7 +41,7 @@ extension UIColor {
         return UIColor(red: 58/255, green: 58/255, blue: 63/255, alpha: 1)
     }
     
-    @nonobjc class var reviewBackgroundView: UIColor {
-        return UIColor(red: 37/255, green: 40/255, blue: 54/255, alpha: 1)
+    @nonobjc class var detailMovies: UIColor {
+        return UIColor(red: 146/255, green: 146/255, blue: 157/255, alpha: 1)
     }
 }

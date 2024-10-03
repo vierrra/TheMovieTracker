@@ -93,6 +93,69 @@ class DetailScreen: UIView {
         return label
     }()
     
+    lazy var calendarImageView: UIImageView = {
+        let image = UIImageView()
+        image.image =  UIImage(systemName: "calendar")?.withRenderingMode(.alwaysTemplate)
+        image.tintColor = .detailMovies
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    lazy var calendarLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2021"
+        label.textColor = .detailMovies
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
+    lazy var firstSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .detailMovies
+        return view
+    }()
+    
+    lazy var timeImageView: UIImageView = {
+        let image = UIImageView()
+        image.image =  UIImage(systemName: "clock")?.withRenderingMode(.alwaysTemplate)
+        image.tintColor = .detailMovies
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    lazy var timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "139 minutos"
+        label.textColor = .detailMovies
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
+    lazy var secondSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .detailMovies
+        return view
+    }()
+    
+    lazy var genreImageView: UIImageView = {
+        let image = UIImageView()
+        image.image =  UIImage(systemName: "movieclapper")?.withRenderingMode(.alwaysTemplate)
+        image.tintColor = .detailMovies
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    lazy var genreLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Anime"
+        label.textColor = .detailMovies
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
     private func setup() {
         buildViewHierarchy()
         configConstraints()
@@ -108,6 +171,14 @@ class DetailScreen: UIView {
         backMovieBannerImageView.addSubview(reviewContentView)
         reviewContentView.addSubview(starImageView)
         reviewContentView.addSubview(filmReviewLabel)
+        addSubview(calendarImageView)
+        addSubview(calendarLabel)
+        addSubview(firstSeparatorView)
+        addSubview(timeImageView)
+        addSubview(timeLabel)
+        addSubview(secondSeparatorView)
+        addSubview(genreImageView)
+        addSubview(genreLabel)
     }
     
     private func configConstraints() {
@@ -132,6 +203,29 @@ class DetailScreen: UIView {
         
         filmReviewLabel.anchor(trailing: reviewContentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8), size: CGSize(width: 18, height: 15))
         filmReviewLabel.yAnchor(yAnchor: starImageView.centerYAnchor)
+        
+        calendarImageView.anchor(top: contentView.bottomAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 20, left: 70, bottom: 0, right: 0), size: CGSize(width: 16, height: 16))
+        
+        calendarLabel.anchor(leading: calendarImageView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
+        calendarLabel.yAnchor(yAnchor: calendarImageView.centerYAnchor)
+        
+        firstSeparatorView.anchor(leading: calendarLabel.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0), size: CGSize(width: 1, height: 18))
+        firstSeparatorView.yAnchor(yAnchor: calendarLabel.centerYAnchor)
+        
+        timeImageView.anchor(leading: firstSeparatorView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0), size: CGSize(width: 16, height: 16))
+        timeImageView.yAnchor(yAnchor: firstSeparatorView.centerYAnchor)
+        
+        timeLabel.anchor(leading: timeImageView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
+        timeLabel.yAnchor(yAnchor: timeImageView.centerYAnchor)
+        
+        secondSeparatorView.anchor(leading: timeLabel.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0), size: CGSize(width: 1, height: 18))
+        secondSeparatorView.yAnchor(yAnchor: timeLabel.centerYAnchor)
+        
+        genreImageView.anchor(leading: secondSeparatorView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0), size: CGSize(width: 16, height: 16))
+        genreImageView.yAnchor(yAnchor: secondSeparatorView.centerYAnchor)
+        
+        genreLabel.anchor(leading: genreImageView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
+        genreLabel.yAnchor(yAnchor: genreImageView.centerYAnchor)
     }
     
 }
