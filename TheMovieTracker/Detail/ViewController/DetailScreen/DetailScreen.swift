@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol DetailScreenProtocol: AnyObject {
+    func segmentChanged(_ sender: UISegmentedControl)
+}
+
 class DetailScreen: UIView {
+    
+    private weak var delegate: DetailScreenProtocol?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -156,6 +162,32 @@ class DetailScreen: UIView {
         return label
     }()
     
+    lazy var segmentControl: UISegmentedControl = {
+        let items = ["Sobre", "Reviews", "Elenco"]
+        let segmentControl =  UISegmentedControl(items: items)
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+        
+        return segmentControl
+    }()
+    
+    @objc func segmentChanged(_ sender: UISegmentedControl) {
+        delegate?.segmentChanged(sender)
+    }
+    
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
+    public func delegate(delegate: DetailScreenProtocol) {
+        self.delegate = delegate
+    }
+    
     private func setup() {
         buildViewHierarchy()
         configConstraints()
@@ -179,6 +211,8 @@ class DetailScreen: UIView {
         addSubview(secondSeparatorView)
         addSubview(genreImageView)
         addSubview(genreLabel)
+        addSubview(segmentControl)
+        addSubview(descriptionLabel)
     }
     
     private func configConstraints() {
@@ -226,6 +260,9 @@ class DetailScreen: UIView {
         
         genreLabel.anchor(leading: genreImageView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
         genreLabel.yAnchor(yAnchor: genreImageView.centerYAnchor)
+        
+        segmentControl.anchor(top: timeLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20))
+        
+        descriptionLabel.anchor(top: segmentControl.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 10))
     }
-    
 }
