@@ -165,7 +165,15 @@ class DetailScreen: UIView {
     lazy var segmentControl: UISegmentedControl = {
         let items = ["Sobre", "Reviews", "Elenco"]
         let segmentControl =  UISegmentedControl(items: items)
+        let normalTextAttributes: [NSAttributedString.Key:Any] = [
+            .foregroundColor: UIColor.lightGray
+        ]
+        let selectedTextAttributes: [NSAttributedString.Key:Any] = [
+            .foregroundColor: UIColor.black
+        ]
         segmentControl.selectedSegmentIndex = 0
+        segmentControl.setTitleTextAttributes(normalTextAttributes, for: .normal)
+        segmentControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
         segmentControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
         
         return segmentControl
