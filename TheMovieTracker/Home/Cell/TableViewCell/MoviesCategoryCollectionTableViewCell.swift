@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol MoviesCategoryCollectionTableViewCellProtocol: AnyObject {
+    func didSelectItemMoviesCategory(at indexPath: IndexPath)
+}
+
 class MoviesCategoryCollectionTableViewCell: UITableViewCell {
 
     static let identifier: String = String(describing: MoviesCategoryCollectionTableViewCell.self)
 
     private var viewModel: MoviesCategoryCollectionTableViewModel = MoviesCategoryCollectionTableViewModel()
+    private weak var delegate: MoviesCategoryCollectionTableViewCellProtocol?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -39,6 +44,10 @@ class MoviesCategoryCollectionTableViewCell: UITableViewCell {
         collectionView.register(MoviesCategoryCollectionViewCell.self, forCellWithReuseIdentifier: MoviesCategoryCollectionViewCell.identifier)
         return collectionView
     }()
+    
+    public func delegate(delegate: MoviesCategoryCollectionTableViewCellProtocol) {
+        self.delegate = delegate
+    }
     
     public func setupCell(_ movies: [Movies]) {
         viewModel.setMovie(movies: movies)
@@ -71,6 +80,10 @@ extension MoviesCategoryCollectionTableViewCell: UICollectionViewDelegate, UICol
         //cell?.setupCell(indexPath.row, viewModel.loadCurrentItem(indexPath: indexPath))
         
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItemMoviesCategory(at: indexPath)
     }
 }
 

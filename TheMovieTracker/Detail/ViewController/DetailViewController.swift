@@ -37,6 +37,9 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailScreenProtocol {
+    func dismiss() {
+        dismiss(animated: true)
+    }
     
     func segmentChanged(_ sender: UISegmentedControl) {
         

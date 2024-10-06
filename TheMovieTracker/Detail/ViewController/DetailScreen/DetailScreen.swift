@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailScreenProtocol: AnyObject {
     func segmentChanged(_ sender: UISegmentedControl)
+    func dismiss()
 }
 
 class DetailScreen: UIView {
@@ -24,6 +25,28 @@ class DetailScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var dismissButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "close2")?.withRenderingMode(.alwaysTemplate)
+        button.tintColor = .white
+        button.setImage(image, for: .normal)
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func dismiss() {
+        delegate?.dismiss()
+    }
+    
+    lazy var closeImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "favorite2")?.withRenderingMode(.alwaysTemplate)
+        image.tintColor = .white
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
     
     lazy var detailLabel: UILabel = {
         let label = UILabel()
@@ -202,6 +225,7 @@ class DetailScreen: UIView {
     }
     
     private func buildViewHierarchy() {
+        addSubview(dismissButton)
         addSubview(detailLabel)
         addSubview(favoriteImageView)
         addSubview(contentView)
@@ -224,6 +248,8 @@ class DetailScreen: UIView {
     }
     
     private func configConstraints() {
+        dismissButton.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 0), size: CGSize(width: 20, height: 20))
+        
         detailLabel.anchor(top: topAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0))
         detailLabel.xAnchor(xAnchor: centerXAnchor)
         

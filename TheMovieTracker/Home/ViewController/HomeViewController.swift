@@ -62,6 +62,11 @@ extension HomeViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         screen?.searchBar.onCancelButtonClicked?()
     }
+    
+    private func routeScreenDetail() {
+        let vc = DetailViewController()
+        present(vc, animated: true)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -86,6 +91,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell ?? UITableViewCell()
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: MoviesCategoryCollectionTableViewCell.identifier, for: indexPath) as? MoviesCategoryCollectionTableViewCell
+            cell?.delegate(delegate: self)
             cell?.setupCell(viewModel.loadCurrentListCategory())
             print("Celula \(indexPath.row)")
             return cell ?? UITableViewCell()
@@ -109,8 +115,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController: Top10CollectionTableViewCellProtocol {
     func didSelectItem(at indexPath: IndexPath) {
-        let vc = DetailViewController()
-        present(vc, animated: true)
+        routeScreenDetail()
     }
 }
+
+extension HomeViewController: MoviesCategoryCollectionTableViewCellProtocol {
+    func didSelectItemMoviesCategory(at indexPath: IndexPath) {
+        routeScreenDetail()
+    }
+}
+
+
 
