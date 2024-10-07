@@ -56,6 +56,7 @@
 		CCE132C82C7EB3BF001C019E /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE132C62C7EB3BF001C019E /* SearchModel.swift */; };
 		CCE2DF002C7414DD0027C81A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */; };
 		CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */; };
+		CCEF1C5C2CB42E46008BBEA5 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF1C5B2CB42E46008BBEA5 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		CCE132C62C7EB3BF001C019E /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		CCE2DEFF2C7414DD0027C81A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CCE2DF012C74171A0027C81A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		CCEF1C5B2CB42E46008BBEA5 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +448,7 @@
 		CCCD9EC32CAB8A9400A61DCB /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				CCEF1C5A2CB42E2F008BBEA5 /* ViewModel */,
 				CCCD9EC42CAB8AB000A61DCB /* ViewController */,
 			);
 			path = Detail;
@@ -591,6 +594,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CCEF1C5A2CB42E2F008BBEA5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CCEF1C5B2CB42E46008BBEA5 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -734,6 +745,7 @@
 				CCE2DF022C74171A0027C81A /* RegisterViewModel.swift in Sources */,
 				6C5C93D52C7387C300DA7960 /* LoginViewController.swift in Sources */,
 				CCD3412C2C8103F200B678D0 /* CategoryCollectionCell.swift in Sources */,
+				CCEF1C5C2CB42E46008BBEA5 /* DetailViewModel.swift in Sources */,
 				6C5C93EA2C73CA3900DA7960 /* MainTabBarViewController.swift in Sources */,
 				6C5C939D2C73741500DA7960 /* WelcomeViewController.swift in Sources */,
 				CCD3413C2C81043F00B678D0 /* MoviesCategoryCollectionTableViewModel.swift in Sources */,
