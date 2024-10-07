@@ -28,7 +28,7 @@ class DetailScreen: UIView {
     
     lazy var dismissButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "close2")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: "close3")?.withRenderingMode(.alwaysTemplate)
         button.tintColor = .white
         button.setImage(image, for: .normal)
         button.backgroundColor = .clear
@@ -40,13 +40,19 @@ class DetailScreen: UIView {
         delegate?.dismiss()
     }
     
-    lazy var closeImageView: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "favorite2")?.withRenderingMode(.alwaysTemplate)
-        image.tintColor = .white
-        image.contentMode = .scaleAspectFill
-        return image
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "favorite2")?.withRenderingMode(.alwaysTemplate)
+        button.tintColor = .white
+        button.setImage(image, for: .normal)
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(tappedFavoriteButton), for: .touchUpInside)
+        return button
     }()
+    
+    @objc func tappedFavoriteButton() {
+        print(#function)
+    }
     
     lazy var detailLabel: UILabel = {
         let label = UILabel()
@@ -227,7 +233,7 @@ class DetailScreen: UIView {
     private func buildViewHierarchy() {
         addSubview(dismissButton)
         addSubview(detailLabel)
-        addSubview(favoriteImageView)
+        addSubview(favoriteButton)
         addSubview(contentView)
         contentView.addSubview(backMovieBannerImageView)
         contentView.addSubview(principalMovieBannerImageView)
@@ -253,8 +259,8 @@ class DetailScreen: UIView {
         detailLabel.anchor(top: topAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0))
         detailLabel.xAnchor(xAnchor: centerXAnchor)
         
-        favoriteImageView.anchor(trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 33), size: CGSize(width: 18, height: 24))
-        favoriteImageView.yAnchor(yAnchor: detailLabel.centerYAnchor)
+        favoriteButton.anchor(trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 33), size: CGSize(width: 20, height: 20))
+        favoriteButton.yAnchor(yAnchor: detailLabel.centerYAnchor)
         
         contentView.anchor(top: detailLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 270))
         
