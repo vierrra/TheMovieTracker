@@ -11,6 +11,7 @@ protocol LoginScreenProtocol: AnyObject {
     func tappedFaceId()
     func tappedRecoveryPassword()
     func tappedLogin()
+    func tappedRegister()
 }
 
 class LoginScreen: UIView {
@@ -129,6 +130,23 @@ class LoginScreen: UIView {
         self.delegate?.tappedLogin()
     }
     
+    lazy var registerButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        
+        button.setTitle("CADASTRA-SE", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(tappedRegister), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func tappedRegister() {
+        self.delegate?.tappedRegister()
+    }
+    
     public func delegates(_ delegate: LoginScreenProtocol, _ delegateTextFields: UITextFieldDelegate) {
         self.delegate = delegate
         self.emailTextField.delegate = delegateTextFields
@@ -149,12 +167,13 @@ class LoginScreen: UIView {
         addSubview(faceIDButton)
         addSubview(recoveryPasswordButton)
         addSubview(loginButton)
+        addSubview(registerButton)
     }
     
     private func configConstraints() {
         backgroundImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         
-        loginLabel.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 300, left: 20, bottom: 0, right: 0))
+        loginLabel.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 250, left: 20, bottom: 0, right: 0))
         
         emailTextField.anchor(top: loginLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 40, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
@@ -168,6 +187,8 @@ class LoginScreen: UIView {
         recoveryPasswordButton.yAnchor(yAnchor: faceIdImageView.centerYAnchor)
         recoveryPasswordButton.anchor(trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20))
         
-        loginButton.anchor(leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 125, right: 20), size: CGSize(width: 0, height: 40))
+        loginButton.anchor(top: recoveryPasswordButton.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 80, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
+        
+        registerButton.anchor(top: loginButton.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 40))
     }
 }

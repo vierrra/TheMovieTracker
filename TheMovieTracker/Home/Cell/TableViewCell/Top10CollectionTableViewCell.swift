@@ -30,7 +30,7 @@ class Top10CollectionTableViewCell: UITableViewCell {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 150, height: 230)
         layout.minimumLineSpacing = 10
@@ -63,7 +63,8 @@ class Top10CollectionTableViewCell: UITableViewCell {
     }
     
     private func configConstraints() {
-        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        collectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, size: CGSize(width: 0, height: Top10CollectionViewCell.heightCell))
+        //collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }
 }
 

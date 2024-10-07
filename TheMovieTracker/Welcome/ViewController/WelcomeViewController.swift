@@ -20,7 +20,9 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         screen?.delegate(self)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.configNavigationController()
     }
     

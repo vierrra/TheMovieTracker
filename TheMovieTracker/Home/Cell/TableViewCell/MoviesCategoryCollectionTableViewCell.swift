@@ -63,7 +63,8 @@ class MoviesCategoryCollectionTableViewCell: UITableViewCell {
     }
     
     private func configConstraints() {
-        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        collectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, size: CGSize(width: 0, height: MoviesCategoryCollectionViewCell.heightCell))
+        //collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }
 }
 

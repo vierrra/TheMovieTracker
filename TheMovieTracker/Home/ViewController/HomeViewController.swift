@@ -99,18 +99,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 250
-        }
-        
-        if indexPath.row == 1 {
-            return 40
-        }
-        
-        return 300
-    }
 }
 
 extension HomeViewController: Top10CollectionTableViewCellProtocol {

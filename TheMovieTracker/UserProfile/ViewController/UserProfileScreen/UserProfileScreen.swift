@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ProfileScreenProtocol: AnyObject {
-    func tappedSaveInfo()
     func tappedLogoutAccount()
 }
 
@@ -95,84 +94,6 @@ class UserProfileScreen: UIView {
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         return label
     }()
-    
-    lazy var passwordLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Redefina sua Senha"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .informationProfileLabel
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        return label
-    }()
-    
-    lazy var passwordView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .informationProfileBackgroundView
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 12
-        return view
-    }()
-    
-    
-    lazy var newPasswordLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Nova senha"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        return label
-    }()
-    
-    lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.borderStyle = .roundedRect
-        textField.attributedPlaceholder = NSAttributedString(string: "Digite uma senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
-        textField.textColor = .white
-        textField.layer.borderColor = UIColor.white.cgColor
-        textField.clipsToBounds = true
-        textField.layer.cornerRadius = 8
-        textField.layer.borderWidth = 1
-        textField.backgroundColor = .backGroundTextField
-        textField.keyboardType = .numberPad
-        textField.isSecureTextEntry = true
-        return textField
-    }()
-    
-    lazy var confirmPasswordTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.borderStyle = .roundedRect
-        textField.attributedPlaceholder = NSAttributedString(string: "Confirme a senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
-        textField.textColor = .white
-        textField.layer.borderColor = UIColor.white.cgColor
-        textField.clipsToBounds = true
-        textField.layer.cornerRadius = 8
-        textField.layer.borderWidth = 1
-        textField.backgroundColor = .backGroundTextField
-        textField.keyboardType = .numberPad
-        textField.isSecureTextEntry = true
-        return textField
-    }()
-    
-    
-    lazy var saveButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .appGray
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Salvar", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(tappedSaveInfo), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc func tappedSaveInfo() {
-        self.delegate?.tappedSaveInfo()
-    }
 
     lazy var logoutButton: UIButton = {
         let button = UIButton()
@@ -191,10 +112,8 @@ class UserProfileScreen: UIView {
         self.delegate?.tappedLogoutAccount()
     }
     
-    public func delegates(_ delegate: ProfileScreenProtocol, _ delegateTextFields: UITextFieldDelegate) {
+    public func delegate(_ delegate: ProfileScreenProtocol) {
         self.delegate = delegate
-        self.passwordTextField.delegate = delegateTextFields
-        self.confirmPasswordTextField.delegate = delegateTextFields
     }
     
     private func setup() {
@@ -211,12 +130,6 @@ class UserProfileScreen: UIView {
         infoView.addSubview(userNameLabel)
         infoView.addSubview(emailLabel)
         infoView.addSubview(emailUserLabel)
-        addSubview(passwordLabel)
-        addSubview(passwordView)
-        passwordView.addSubview(newPasswordLabel)
-        passwordView.addSubview(passwordTextField)
-        passwordView.addSubview(confirmPasswordTextField)
-        addSubview(saveButton)
         addSubview(logoutButton)
     }
     
@@ -228,7 +141,7 @@ class UserProfileScreen: UIView {
             backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            welcomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 110),
+            welcomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 200),
             welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             welcomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             welcomeLabel.heightAnchor.constraint(equalToConstant: 30),
@@ -241,7 +154,7 @@ class UserProfileScreen: UIView {
             infoView.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 5),
             infoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             infoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            infoView.heightAnchor.constraint(equalToConstant: 120),
+            infoView.heightAnchor.constraint(equalToConstant: 130),
             
             nameLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10),
@@ -263,37 +176,7 @@ class UserProfileScreen: UIView {
             emailUserLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10),
             emailUserLabel.heightAnchor.constraint(equalToConstant: 20),
 
-            passwordLabel.topAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 20),
-            passwordLabel.leadingAnchor.constraint(equalTo: infoLabel.leadingAnchor),
-            passwordLabel.trailingAnchor.constraint(equalTo: infoLabel.trailingAnchor),
-            passwordLabel.heightAnchor.constraint(equalToConstant: 20),
-
-            passwordView.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5),
-            passwordView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            passwordView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            passwordView.heightAnchor.constraint(equalToConstant: 150),
-
-            newPasswordLabel.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 10),
-            newPasswordLabel.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
-            newPasswordLabel.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
-            newPasswordLabel.heightAnchor.constraint(equalToConstant: 20),
-
-            passwordTextField.topAnchor.constraint(equalTo: newPasswordLabel.bottomAnchor, constant: 10),
-            passwordTextField.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
-            passwordTextField.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            confirmPasswordTextField.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 10),
-            confirmPasswordTextField.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
-            confirmPasswordTextField.bottomAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: -15),
-            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 40),
-                  
-            saveButton.topAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: 10),
-            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            saveButton.heightAnchor.constraint(equalToConstant: 40),
-            
-            logoutButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
+            logoutButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
             logoutButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             logoutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             logoutButton.heightAnchor.constraint(equalToConstant: 40),

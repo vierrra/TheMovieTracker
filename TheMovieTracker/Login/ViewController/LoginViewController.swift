@@ -24,6 +24,15 @@ class LoginViewController: UIViewController {
         self.isEnabledLoginButton(isEnable: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configNavigationController()
+    }
+    
+    private func configNavigationController() {
+        navigationItem.title = ""
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
     private func configProtocols() {
         screen?.delegates(self, self)
     }
@@ -35,6 +44,11 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginScreenProtocol {
+    func tappedRegister() {
+        let vc = RegisterViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func tappedFaceId() {
         print("FaceID")
     }
@@ -44,7 +58,6 @@ extension LoginViewController: LoginScreenProtocol {
     }
     
     func tappedLogin() {
-        print("Login")
         let vc = MainTabBarViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

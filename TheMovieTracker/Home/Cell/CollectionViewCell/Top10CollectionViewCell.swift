@@ -10,6 +10,7 @@ import UIKit
 class Top10CollectionViewCell: UICollectionViewCell {
     
     static let identifier = String(describing: Top10CollectionViewCell.self)
+    static let heightCell: CGFloat = 250
     
     override init(frame: CGRect) {
         super.init(frame: frame)
