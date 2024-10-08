@@ -40,6 +40,20 @@ class RegisterScreen: UIView {
         return label
     }()
     
+    lazy var nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.attributedPlaceholder = NSAttributedString(string: "Digite seu nome", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
+        textField.textColor = .white
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 8
+        textField.layer.borderWidth = 1
+        textField.backgroundColor = .backGroundTextField
+        textField.keyboardType = .emailAddress
+        return textField
+    }()
+    
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
@@ -102,6 +116,7 @@ class RegisterScreen: UIView {
     
     public func delegates(_ delegate: RegisterScreenProtocol, delegatesTextFields: UITextFieldDelegate) {
         self.delegate = delegate
+        self.nameTextField.delegate = delegatesTextFields
         self.emailTextField.delegate = delegatesTextFields
         self.passwordTextField.delegate = delegatesTextFields
         self.confirmPasswordTextField.delegate = delegatesTextFields
@@ -115,6 +130,7 @@ class RegisterScreen: UIView {
     private func buildViewHierarchy() {
         addSubview(backgroundImageView)
         addSubview(registerLabel)
+        addSubview(nameTextField)
         addSubview(emailTextField)
         addSubview(passwordTextField)
         addSubview(confirmPasswordTextField)
@@ -126,12 +142,14 @@ class RegisterScreen: UIView {
         
         registerLabel.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 250, left: 20, bottom: 0, right: 0))
         
-        emailTextField.anchor(top: registerLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 40, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
+        nameTextField.anchor(top: registerLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 40, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
+        
+        emailTextField.anchor(top: nameTextField.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
         passwordTextField.anchor(top: emailTextField.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
         confirmPasswordTextField.anchor(top: passwordTextField.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
         
-        registerButton.anchor(leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 80, right: 20), size: CGSize(width: 0, height: 40))
+        registerButton.anchor(top: confirmPasswordTextField.bottomAnchor , leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 50, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
     }
 }

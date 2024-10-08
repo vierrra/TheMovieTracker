@@ -68,7 +68,7 @@ extension RegisterViewController: UITextFieldDelegate {
           let newText = text.replacingCharacters(in: range, with: string)
           textField.text = newText
             if let viewModel = viewModel, let screen = screen {
-                if viewModel.validationsFieldsTextFields(screen.emailTextField.text ?? "", screen.passwordTextField.text ?? "", confirmPassword: screen.confirmPasswordTextField.text ?? "") {
+                if viewModel.validationsFieldsTextFields(screen.nameTextField.text ?? "", screen.emailTextField.text ?? "", screen.passwordTextField.text ?? "", confirmPassword: screen.confirmPasswordTextField.text ?? "") {
                     isEnabledLoginButton(isEnable: true)
               } else {
                     isEnabledLoginButton(isEnable: false)

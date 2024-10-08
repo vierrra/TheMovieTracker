@@ -21,8 +21,8 @@ class RegisterViewModel {
         return passwordPred.evaluate(with: password)
     }
     
-    public func validationsFieldsTextFields(_ email: String, _ password: String, confirmPassword: String) -> Bool {
-        if isValidEmail(email) && isValidPassword(password) && isValidPassword(confirmPassword) {
+    public func validationsFieldsTextFields(_ name: String, _ email: String, _ password: String, confirmPassword: String) -> Bool {
+        if !name.isEmpty && isValidEmail(email) && isValidPassword(password) && isValidPassword(confirmPassword) {
             return true
         } else {
             return false
