@@ -10,22 +10,27 @@ import Foundation
 class FavoritesViewModel {
     
   private var listMovie:
-    [FavoritesMovies] = [FavoritesMovies(name: "Spiderman", cover: "spiderman", rating: "9.5", gender: "Ação", releaseDate: "2022", durationTime: "125 minutos"),
-                FavoritesMovies(name: "Incrivel Hulk", cover: "incrivel_hulk", rating: "6.9", gender: "Aventura",  releaseDate: "2005", durationTime: "179 minutos" ),
-                FavoritesMovies(name: "Divertidamente", cover: "divertidamente", rating: "8.9", gender: "Ação",  releaseDate: "2021", durationTime: "104 minutos"),
-                FavoritesMovies(name: "One Love", cover: "one_love", rating: "9.5", gender: "Ficção científica", releaseDate: "1999", durationTime: "149 minutos" ),
-                FavoritesMovies(name: "Sonic", cover: "sonic", rating: "9.5", gender: "Ficção científica",   releaseDate: "1994",  durationTime: "95 minutos" ),
-                FavoritesMovies(name: "De Volta para o Futuro", cover: "volta_para_futuro", rating: "6.2", gender: "Ação",   releaseDate: "2014",  durationTime: "122 minutos" ),
-                FavoritesMovies(name: "Wolverine", cover: "wolverine",  rating: "7.9", gender: "Comédia", releaseDate: "2009", durationTime: "109 minutos" ),]
+    [AllMovies] = [AllMovies(image: "cobra", title: "Cobra", review: 9.3, genre: "Ação", year: 1980, time: 140),
+                                           AllMovies(image: "divertidamente", title: "Divertidamente", review: 9.5, genre: "Anime", year: 2024, time: 140),
+                                           AllMovies(image: "incrivel_hulk", title: "Incrível Hulk", review: 9.5, genre: "Anime", year: 2024, time: 140),
+                                           AllMovies(image: "one_love", title: "One Love", review: 10.0, genre: "Biografia", year: 2024, time: 140),
+                                           AllMovies(image: "rocky", title: "Rocky IV", review: 10.0, genre: "Ação", year: 2024, time: 140),
+                                           AllMovies(image: "sonic", title: "Sonic", review: 8.0, genre: "Anime", year: 2020, time: 140),
+                                           AllMovies(image: "spiderman", title: "Spiderman", review: 5.0, genre: "Aventura", year: 2015, time: 140),
+                                           AllMovies(image: "tropa_elite_2", title: "Tropa de elite 2", review: 10, genre: "Policial", year: 2005, time: 140),
+                                           AllMovies(image: "volta_para_futuro", title: "De volta para o futuro", review: 9.5, genre: "Ação", year: 2024, time: 140),
+                                           AllMovies(image: "wolverine", title: "Wolverine", review: 9.5, genre: "Besteirol", year: 2024, time: 140),
+                                           
+    ]
  
 
     // função get de retorno
-    func getListMovie() -> [FavoritesMovies] {
+    func getListMovie() -> [AllMovies] {
       return listMovie
     }
 
     // variável computada de retorno
-    var getComputedListMovie: [FavoritesMovies] {
+    var getComputedListMovie: [AllMovies] {
       return listMovie
     }
 
@@ -33,7 +38,7 @@ class FavoritesViewModel {
       return listMovie.count
     }
 
-    func loadCurrentMovie(indexPath: IndexPath) -> FavoritesMovies {
+    func loadCurrentMovie(indexPath: IndexPath) -> AllMovies {
       return listMovie[indexPath.row]
     }
 

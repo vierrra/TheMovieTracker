@@ -29,7 +29,7 @@ class FavoritesScreen: UIView {
     lazy var tableView:UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.identifier)
+        tableView.register(SearchBarTableViewCell.self, forCellReuseIdentifier: SearchBarTableViewCell.identifier)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         return tableView

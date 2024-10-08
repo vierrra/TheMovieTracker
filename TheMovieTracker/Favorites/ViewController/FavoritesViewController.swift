@@ -35,8 +35,7 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = viewModel.loadCurrentMovie(indexPath: indexPath)
-        print(movie.name)
+       
     }
 }
 
@@ -47,9 +46,9 @@ extension FavoritesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarTableViewCell.identifier, for: indexPath) as? SearchBarTableViewCell
         
-        cell?.setupCell(movie: viewModel.loadCurrentMovie(indexPath: indexPath))
+        cell?.setupCell(viewModel.loadCurrentMovie(indexPath: indexPath))
         return cell ?? UITableViewCell()
     }    
 }
