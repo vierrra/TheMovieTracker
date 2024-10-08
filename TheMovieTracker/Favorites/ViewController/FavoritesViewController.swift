@@ -25,6 +25,11 @@ class FavoritesViewController: UIViewController {
         customizeNavigation()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        screen?.tableView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
     private func customizeNavigation() {
                 title = "Favoritos"
                 let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]

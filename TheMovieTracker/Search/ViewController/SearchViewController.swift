@@ -35,7 +35,13 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredMovies = listMovies
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         customizeNavigation()
+        screen?.tableView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     private func customizeNavigation() {
