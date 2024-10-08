@@ -33,7 +33,7 @@ class SearchBarTableViewCell: UITableViewCell {
         label.text = "Divertidamente"
         label.textColor = .white
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -42,8 +42,6 @@ class SearchBarTableViewCell: UITableViewCell {
         image.image =  UIImage(systemName: "star")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .orange
         image.contentMode = .scaleAspectFill
-        image.clipsToBounds = true
-        image.layer.cornerRadius = 16
         return image
     }()
     
@@ -52,7 +50,7 @@ class SearchBarTableViewCell: UITableViewCell {
         label.text = "9.5"
         label.textColor = .orange
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
@@ -69,7 +67,7 @@ class SearchBarTableViewCell: UITableViewCell {
         label.text = "Anime"
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
@@ -86,7 +84,7 @@ class SearchBarTableViewCell: UITableViewCell {
         label.text = "2019"
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
@@ -103,7 +101,7 @@ class SearchBarTableViewCell: UITableViewCell {
         label.text = "139 minutos"
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
@@ -135,7 +133,7 @@ class SearchBarTableViewCell: UITableViewCell {
     }
     
     private func configConstraints() {
-        bannerImageView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 0), size: CGSize(width: 95, height: 120))
+        bannerImageView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 0), size: CGSize(width: 125, height: 150))
         
         titleLabel.anchor(top: contentView.topAnchor, leading: bannerImageView.trailingAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 10, bottom: 0, right: 0))
         
@@ -143,16 +141,16 @@ class SearchBarTableViewCell: UITableViewCell {
         
         filmReviewLabel.anchor(top: titleLabel.bottomAnchor, leading: starImageView.trailingAnchor, padding: UIEdgeInsets(top: 15, left: 5, bottom: 0, right: 0))
         
-        genreImageView.anchor(top: starImageView.bottomAnchor, leading: bannerImageView.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 10, bottom: 0, right: 0), size: CGSize(width: 16, height: 16))
+        genreImageView.anchor(top: starImageView.bottomAnchor, leading: bannerImageView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0), size: CGSize(width: 20, height: 20))
         
-        genreLabel.anchor(top: filmReviewLabel.bottomAnchor, leading: genreImageView.trailingAnchor, padding: UIEdgeInsets(top: 8, left: 5, bottom: 0, right: 0))
+        genreLabel.anchor(top: filmReviewLabel.bottomAnchor, leading: genreImageView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 5, bottom: 0, right: 0))
         
-        calendarImageView.anchor(top: genreImageView.bottomAnchor, leading: bannerImageView.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 10, bottom: 0, right: 0), size: CGSize(width: 16, height: 16))
+        calendarImageView.anchor(top: genreImageView.bottomAnchor, leading: bannerImageView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0), size: CGSize(width: 20, height: 20))
         
-        calendarLabel.anchor(top: genreLabel.bottomAnchor, leading: calendarImageView.trailingAnchor, padding: UIEdgeInsets(top: 8, left: 5, bottom: 0, right: 0))
+        calendarLabel.anchor(top: genreLabel.bottomAnchor, leading: calendarImageView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 5, bottom: 0, right: 0))
         
-        timeImageView.anchor(top: calendarImageView.bottomAnchor, leading: bannerImageView.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 10, bottom: 0, right: 0), size: CGSize(width: 16, height: 16))
+        timeImageView.anchor(top: calendarImageView.bottomAnchor, leading: bannerImageView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0), size: CGSize(width: 20, height: 20))
         
-        timeLabel.anchor(top: calendarLabel.bottomAnchor, leading: timeImageView.trailingAnchor, padding: UIEdgeInsets(top: 6, left: 5, bottom: 0, right: 0))
+        timeLabel.anchor(top: calendarLabel.bottomAnchor, leading: timeImageView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 5, bottom: 0, right: 0))
     }
 }
