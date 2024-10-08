@@ -2,9 +2,9 @@
 
 import UIKit
 
-class SearchBarTableViewCell: UITableViewCell {
+class CommonTableViewCell: UITableViewCell {
     
-    static let identifier: String = String(describing: SearchBarTableViewCell.self)
+    static let identifier: String = String(describing: CommonTableViewCell.self)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

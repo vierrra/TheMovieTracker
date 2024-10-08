@@ -105,7 +105,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarTableViewCell.identifier, for: indexPath) as? SearchBarTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CommonTableViewCell.identifier, for: indexPath) as? CommonTableViewCell else {
                 return UITableViewCell()
             }
             

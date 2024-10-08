@@ -26,7 +26,7 @@ class SearchTableViewScreen: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
-        tableView.register(SearchBarTableViewCell.self, forCellReuseIdentifier: SearchBarTableViewCell.identifier)
+        tableView.register(CommonTableViewCell.self, forCellReuseIdentifier: CommonTableViewCell.identifier)
         tableView.register(EmptyStateTableViewCell.self, forCellReuseIdentifier: EmptyStateTableViewCell.identifier)
         return tableView
     }()
