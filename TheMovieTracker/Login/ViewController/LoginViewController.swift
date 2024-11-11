@@ -58,8 +58,9 @@ extension LoginViewController: LoginScreenProtocol {
     }
     
     func tappedLogin() {
-        let vc = MainTabBarViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        viewModel?.login(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "")
+//        let vc = MainTabBarViewController()
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

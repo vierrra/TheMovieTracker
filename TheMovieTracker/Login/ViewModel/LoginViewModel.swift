@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewModel {
     
@@ -26,6 +27,16 @@ class LoginViewModel {
             return true
         } else {
             return false
+        }
+    }
+    
+    public func login(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Deu ruim")
+                return
+            }
+            print("Deu bom")
         }
     }
 }
