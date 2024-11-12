@@ -26,6 +26,7 @@ class RegisterViewController: BaseViewController {
     
     private func configProtocols() {
         screen?.delegates(self, delegatesTextFields: self)
+        viewModel?.delegate = self
     }
     
     private  func isEnabledLoginButton(isEnable: Bool) {
@@ -51,11 +52,7 @@ extension RegisterViewController: RegisterScreenProtocol {
         guard let viewModel = viewModel else { return }
         
         if viewModel.validateEqualsPassword(screen?.passwordTextField.text ?? "", screen?.confirmPasswordTextField.text ?? "") {
-            //TO DO: Colocar tratativa de sucesso ou error
-            showAlertWithCompletion("Parabéns", "O usuário e a senha foram cadastrados com sucesso.", "Ok") {
-                self.routeToLoginScreen()
-            }
-            print("Segue com o Registro no firebase")
+            viewModel.createUser(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "")
         } else {
             showAlertWithCompletion("Atenção", "A senha e a confirmação da senha devem ser iguais.", "Ok") {}
         }
@@ -76,5 +73,17 @@ extension RegisterViewController: UITextFieldDelegate {
             }
         }
         return false
+    }
+}
+
+extension RegisterViewController: RegisterViewModelProtocol {
+    func successRegister(title: String, message: String) {
+        showAlertWithCompletion(title, message, "Ok") {
+            self.routeToLoginScreen()
+        }
+    }
+    
+    func errorRegister(title: String, message: String) {
+        showAlertWithCompletion(title, message, "Ok") {}
     }
 }
