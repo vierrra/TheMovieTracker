@@ -41,7 +41,7 @@ class LoginViewModel {
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             
-            if let error = error {
+            if error != nil {
                 self?.delegate?.errorLogin(title: "Atenção", message: "Usuário ou senha incorreta!\n Tente novamente.")
                 return
             }
