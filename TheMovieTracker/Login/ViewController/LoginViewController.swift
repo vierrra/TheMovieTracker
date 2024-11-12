@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     private var screen: LoginScreen?
     private var viewModel: LoginViewModel? = LoginViewModel()
@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         self.configProtocols()
-        self.isEnabledLoginButton(isEnable: true)
+        self.isEnabledLoginButton(isEnable: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
     
     private func configProtocols() {
         screen?.delegates(self, self)
+        viewModel?.delegate = self
     }
     
     private  func isEnabledLoginButton(isEnable: Bool) {
@@ -58,9 +59,7 @@ extension LoginViewController: LoginScreenProtocol {
     }
     
     func tappedLogin() {
-        viewModel?.login(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "")
-//        let vc = MainTabBarViewController()
-//        navigationController?.pushViewController(vc, animated: true)
+        viewModel?.fetchLogin(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "")
     }
 }
 
@@ -79,6 +78,17 @@ extension LoginViewController: UITextFieldDelegate {
             }
         }
         return false
+    }
+}
+
+extension LoginViewController: LoginViewModelProtocol {
+    func successLogin() {
+        let vc = MainTabBarViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func errorLogin(title: String, message: String) {
+        showAlertWithCompletion(title, message, "Ok") {}
     }
 }
 

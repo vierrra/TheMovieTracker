@@ -8,7 +8,14 @@
 import UIKit
 import FirebaseAuth
 
+protocol LoginViewModelProtocol: AnyObject {
+    func successLogin()
+    func errorLogin(title: String, message: String)
+}
+
 class LoginViewModel {
+    
+    weak var delegate: LoginViewModelProtocol?
     
     private func isValidEmail(_ email: String) -> Bool {
         let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -30,13 +37,15 @@ class LoginViewModel {
         }
     }
     
-    public func login(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+    public func fetchLogin(email: String, password: String) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            
             if let error = error {
-                print("Deu ruim")
+                self?.delegate?.errorLogin(title: "Atenção", message: "Usuário ou senha incorreta!\n Tente novamente.")
                 return
             }
-            print("Deu bom")
+            self?.delegate?.successLogin()
         }
     }
 }
