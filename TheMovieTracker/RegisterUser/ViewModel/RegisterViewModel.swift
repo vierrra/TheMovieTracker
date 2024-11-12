@@ -53,7 +53,6 @@ class RegisterViewModel {
             if error == nil {
                 self?.delegate?.successRegister(title: "Parabéns", message: "O usuário e a senha foram cadastrados com sucesso.")
             } else {
-                if let error = error {
                     if let authError = error as NSError? {
                         switch authError.code {
                         case AuthErrorCode.emailAlreadyInUse.rawValue:
@@ -62,7 +61,6 @@ class RegisterViewModel {
                             self?.delegate?.errorRegister(title: "Atenção", message: "Não foi possível criar o usuário!\n Tente novamente")
                         }
                     }
-                }
             }
         }
     }
